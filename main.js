@@ -22,5 +22,8 @@ $(document).ready(function () {
         changeImage(".bg", images, 8000);
     });
     
+     $('.email').click(function () {
+        window.location.href = "mailto:me@syedsamiuddin.me";
+      });
 
 });

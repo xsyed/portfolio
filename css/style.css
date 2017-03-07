@@ -342,12 +342,21 @@ body {
 }
 
 .fname,
-.email,
 .reach {
     color: white;
     font-size: 30px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+}
+.email{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.email:hover {
+	cursor: pointer;
+    color: #337ab7;
 }
 
 .conreach {
