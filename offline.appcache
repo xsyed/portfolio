@@ -3,21 +3,13 @@ CACHE MANIFEST
 index.html
 css/style.css
 main.js
-favicon.ico
 offline.appcache
-manifest.json
 css/images/image1.jpg
 css/images/image2.jpg
 css/images/image3.jpg
 css/images/image4.jpg
 css/images/image5.jpg
 css/images/image6.jpg
-images/launcher-icon-0-75x.png
-images/launcher-icon-0-1x.png
-images/launcher-icon-1-5x.png
-images/launcher-icon-2x.png
-images/launcher-icon-3x.png
-images/launcher-icon-4x.png
 
 NETWORK:
 *
