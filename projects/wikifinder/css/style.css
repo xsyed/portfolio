@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Yrsa|Fjalla+One');
+
+/*
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Yrsa', serif;
+font-family: 'Fjalla One', sans-serif;
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*     background-color: rgba(107, 142, 35, 0.9); */
+    background-color: #009688;
+}
+
+.logo {
+    font-family: 'Yrsa', serif;
+    color: white;
+    padding: 10px;
+    font-size: 50px;
+}
+
+.card_link {
+    text-decoration: none;
+    width: 700px;
+    display: block;
+    margin: 30px 0px 20px 0px;
+    height: auto;
+    overflow: hidden;
+}
+
+.card_link:hover,
+.card_link:active {
+    text-decoration: none;
+}
+
+.card {
+    width: 700px;
+    height: auto;
+    background-color: white;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 2px 3px 4px -1px rgba(0, 0, 0, 0.52);
+    text-align: justify;
+    border-radius: 5px;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+    -webkit-transition: background 0.2s ease-out;
+    transition: background 0.2s ease-out;
+}
+
+.title {
+    font-size: 27px;
+    color: #000000;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.sentence {
+    font-size: 20px;
+    margin-top: 12px;
+    color: #454545;
+    text-indent: 50px;
+    padding-left: 8px;
+    line-height: 1.6em;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.thumb {
+    float: right;
+    position: relative;
+    padding: 5px 5px 2px 20px;
+}
+
+.thumb img {
+    border-radius: 10%;
+    width: 150px;
+    height: auto;
+}
+
+input[type=search] {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-width: 0px;
+    -webkit-appearance: none;
+    font-size: 25px;
+    box-shadow: 2px 3px 4px -1px rgba(0, 0, 0, 0.52);
+    background-color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('http://res.cloudinary.com/syedsamiuddin/image/upload/v1480858982/search_uyhg25.png');
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    padding: 12px 12px 12px 30px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border-radius: 3px;
+}
+
+input[type=search]:focus {
+    width: 40%;
+    outline: none;
+    border: none;
+    text-align: center;
+    background-image: none;
+    border-width: none;
+}
+
+.active,
+input[type=search]:active {
+    width: 50px;
+    height: 50px;
+    outline: none;
+    color: transparent;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    background-image: url('http://res.cloudinary.com/syedsamiuddin/image/upload/v1480858982/search_uyhg25.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 12px 12px 12px 30px;
+}
+
+.bottom {
+    position: fixed;
+    right: 30px;
+    bottom: 25px;
+}
+
+.bottom input {
+    width: 60px;
+    outline: none;
+    height: 60px;
+    cursor: pointer;
+}
+
+.bottom input:hover,
+input:active {
+    border-radius: 100%;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    box-shadow: 0px 21px 73px -7px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.rantext {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Yrsa', serif;
+    text-shadow: -1px 3px 1px rgb(51, 50, 50);
+}
+
+.footer {
+    position: relative;
+    margin: 30px 20px auto;
+    width: 80x%;
+    color: white;
+    text-align: center;
+    font-family: 'Yrsa', serif;
+    font-size: 25px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.footer a:hover,
+a:active {
+    color: black;
+    -webkit-transition: color 0.5s ease-in;
+    transition: color 0.5s ease-in;
+}
+
+ul.ui-autocomplete.ui-menu {
+    box-shadow: 2px 3px 4px -1px rgba(0, 0, 0, 0.52);
+    border-radius: 3px;
+    width: 40%;
+    height: auto;
+}
+
+ul.ui-autocomplete.ui-menu li div {
+    border: 1px solid #e8e8e8;
+    font-family: 'Yrsa', serif;
+    padding: 10px;
+}
+
+ul.ui-autocomplete.ui-menu li div:hover,
+ul.ui-autocomplete.ui-menu li div:active {
+    background-color: #e8e8e8;
+    font-family: 'Yrsa', serif;
+    padding: 10px;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width:750px) {
+    .card {
+        width: 95%;
+        height: auto;
+        padding: 10px 20px 20px 10px;
+    }
+    .card_link {
+        text-decoration: none;
+        width: 95%;
+        display: block;
+        margin: 20px 0px 20px 0px;
+        height: auto;
+    }
+    .title {
+        text-align: center;
+        font-size: 30px;
+        margin: 10px;
+        font-family: 'Fjalla One', sans-serif;
+    }
+    .sentence {
+        font-size: 18px;
+    }
+    .thumb {
+        float: none;
+    }
+    .thumb img {
+        margin: 5px auto;
+        display: block;
+        border-radius: 10%;
+        width: 200px;
+        height: auto;
+    }
+    input[type=search] {
+        font-size: 20px;
+    }
+    input[type=search]:focus {
+        width: 85%;
+    }
+    .active,
+    input[type=search]:active {
+        width: 50px;
+        height: 50px;
+        outline: none;
+        color: transparent;
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+        background-image: url('http://res.cloudinary.com/syedsamiuddin/image/upload/v1480858982/search_uyhg25.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 12px 12px 12px 30px;
+    }
+    .rantext {
+        font-size: 15px;
+    }
+    .bottom {
+        right: 10px;
+        bottom: 15px;
+    }
+}

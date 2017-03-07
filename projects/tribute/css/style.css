@@ -1,0 +1,72 @@
+body {
+    margin-top: 15px;
+}
+
+.pedit {
+    text-align: justify;
+    text-indent: 50px;
+    line-height: 2;
+}
+
+.mgtp {
+    margin-top: 20px;
+}
+
+.bq {
+    line-height: 1.5;
+}
+
+.spacing {
+    padding: 10px 15px;
+}
+
+.made-sign {
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.linking:link {
+    text-decoration: none;
+    color: black;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.linking:visited {
+    text-decoration: none;
+    color: black;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.linking:hover {
+    text-decoration: none;
+    color: #5bc0de;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.linking:active {
+    text-decoration: none;
+    color: #5bc0de;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+@media only screen and (max-width: 480px) {
+    .text-center {
+        font-size: 26px;
+    }
+    .made-sign {
+        font-size: 12px;
+    }
+    .update {
+        font-size: 18px;
+    }
+    .disclaimer {
+        font-size: 15px;
+    }
+    .logo {
+        width: 80px;
+        height: 60px;
+    }
+}

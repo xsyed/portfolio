@@ -1,0 +1,529 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Playball|Roboto+Mono|Merienda';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgba(171, 203, 216, 0.3);
+}
+
+.rmp {
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+}
+
+#group1 .bg {
+    background-image: url("images/image1.jpg");
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -khtml-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar {
+    float: right;
+    position: fixed;
+    top: 20px;
+    right: 90px;
+    width: 200px;
+    height: 50px;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.navbar .glyphicon {
+    font-size: 35px;
+    padding: 6px 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar a {
+    display: inline-block;
+}
+
+.navbar .ghome:hover {
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    color: deepskyblue;
+}
+
+.navbar .gheart:hover {
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    color: red;
+}
+
+.navbar .gphone:hover {
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    color: lawngreen;
+}
+
+.above {
+    z-index: 5;
+}
+
+.welcome {
+    position: absolute;
+    top: 280px;
+    right: 8%;
+}
+
+.name {
+    position: absolute;
+    top: 370px;
+    right: 8%;
+}
+
+.iamtext {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.hello {
+    font-size: 45px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.iam {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 35px;
+}
+
+.iul {
+    margin: 0 auto;
+    padding: 10px 90px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    border-left: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.oul li {
+    padding: 4px 0px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.glyphicon-send {
+    font-size: 25px;
+}
+
+.iul li {
+    display: block;
+    padding: 25px 0px 0px 0px;
+}
+
+.conreach {
+    text-align: center;
+}
+
+
+/*-------parallax-----*/
+
+.parallax {
+    height: 500px;
+    /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    -moz-perspective: 300px;
+    -o-perspective: 300px;
+    -ms-perspective: 300px;
+    perspective: 300px;
+    -webkit-perspective-origin-x: 100%;
+    -moz-perspective-origin-x: 100%;
+    -o-perspective-origin-x: 100%;
+    -ms-perspective-origin-x: 100%;
+    perspective-origin-x: 100%;
+}
+
+.parallax__group {
+    height: 500px;
+    /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.parallax__layer {
+    -webkit-transform-origin-x: 100%;
+    -moz-transform-origin-x: 100%;
+    -o-transform-origin-x: 100%;
+    -ms-transform-origin-x: 100%;
+    transform-origin-x: 100%;
+}
+
+.parallax__layer--fore {
+    -webkit-transform: translateZ(-20px);
+    -ms-transform: translateZ(-20px);
+    -o-transform: translateZ(-20px);
+    -moz-transform: translateZ(-20px);
+    transform: translateZ(-20px);
+    z-index: 5;
+}
+
+.parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+}
+
+
+/*----------end-parallax---------*/
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -moz-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -moz-transform: translateY(-30px);
+        -webkit-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -o-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    60% {
+        -moz-transform: translateY(-15px);
+        -webkit-transform: translateY(-15px);
+        -ms-transform: translateY(-15px);
+        -o-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+
+.arrow {
+    position: absolute;
+    bottom: 2%;
+    left: 47%;
+    width: 40px;
+    z-index: 5;
+    height: 40px;
+    -webkit-animation: bounce 2s infinite;
+    -moz-animation: bounce 2s infinite;
+    -o-animation: bounce 2s infinite;
+    -ms-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+.projects {
+    text-align: center;
+}
+
+.pro h2 {
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.img-pro {
+    margin-top: 50px;
+}
+
+.img-pro img {
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.img-pro a {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding: 0 20px 0 0px;
+}
+
+.img-pro a span {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    color: black;
+    font-size: 45px;
+    z-index: 7;
+    font-family: 'Playball', cursive;
+}
+
+.img-pro a img {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+.img-pro a:hover img,
+.img-pro a:active img {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.img-pro a:hover span {
+    visibility: hidden;
+}
+
+.heart {
+    font-size: 50px;
+    color: red;
+}
+
+#group3 {
+    text-align: center;
+    background: #2b2b2b;
+    margin-top: 50px;
+    -webkit-box-shadow: inset 0px 6px 9px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 6px 9px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 6px 9px -1px rgba(0, 0, 0, 0.75);
+}
+
+.footer h2 {
+    color: white;
+    margin-top: 20px;
+    font-family: 'Merienda', cursive;
+    font-size: 50px;
+}
+
+.info {
+    margin-top: 50px;
+}
+
+.footer .my-img {
+    width: 240px;
+    height: 240px;
+}
+
+.fname,
+.email,
+.reach {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.conreach {
+    text-align: center;
+}
+
+.form-control {
+    background-color: #2b2b2b;
+    border-color: #2b2b2b;
+    color: aliceblue;
+    -webkit-box-shadow: inset 2px 5px 14px -2px rgba(10, 10, 10, 0.81);
+    -moz-box-shadow: inset 2px 5px 14px -2px rgba(10, 10, 10, 0.81);
+    box-shadow: inset 2px 5px 14px -2px rgba(10, 10, 10, 0.81);
+}
+
+.social ul a {
+    display: inline-block;
+    text-decoration: none;
+    color: #312c32;
+}
+
+.social ul a:hover {
+    color: #98dafc;
+}
+
+.social li {
+    display: inline-block;
+    padding: 15px 20px;
+}
+
+.icon {
+    transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -webkit-transition: 0.1s;
+    width: 64px;
+    background-repeat: no-repeat;
+    height: 64px;
+}
+
+.social li .facebook {
+    background-image: url("https://res.cloudinary.com/syedsamiuddin/image/upload/v1474703923/Portfolio/fb-white.png");
+}
+
+.social li .facebook:hover {
+    transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -webkit-transition: 0.1s;
+    background-image: url("https://res.cloudinary.com/syedsamiuddin/image/upload/v1474703923/Portfolio/fb-blue.png");
+}
+
+.social li .twitter {
+    background-image: url("https://res.cloudinary.com/syedsamiuddin/image/upload/v1474703975/Portfolio/twitter-white.png");
+}
+
+.social li .twitter:hover {
+    transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -webkit-transition: 0.1s;
+    background-image: url("https://res.cloudinary.com/syedsamiuddin/image/upload/v1474703975/Portfolio/twitter-blue.png");
+}
+
+.social li .codepen {
+    background-image: url("https://res.cloudinary.com/syedsamiuddin/image/upload/v1474703923/Portfolio/codepen-white.png");
+}
+
+.social li .codepen:hover {
+    transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -webkit-transition: 0.1s;
+    background-image: url("https://res.cloudinary.com/syedsamiuddin/image/upload/v1474703923/Portfolio/codepen.png");
+}
+
+.copyright {
+    padding: 15px 0 0 0;
+    font-size: 18px;
+    color: aliceblue;
+    text-align: center;
+}
+
+@media only screen and (max-width:700px) {
+    .navbar {
+        width: 100%;
+        min-height: 60px;
+        background-color: rgba(0, 0, 0, 0.4);
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0px;
+    }
+    .arrow {
+        position: absolute;
+        bottom: 5%;
+        left: 47%;
+        width: 40px;
+        z-index: 5;
+        height: 40px;
+        -webkit-animation: bounce 2s infinite;
+        -moz-animation: bounce 2s infinite;
+        -o-animation: bounce 2s infinite;
+        -ms-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+    }
+    .navbar .glyphicon {
+        padding: 6px 15px;
+    }
+    .nav-group {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+    .fname,
+    .email {
+        font-size: 25px;
+    }
+    .reach {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .navbar {
+        width: 100%;
+        min-height: 60px;
+        background-color: rgba(0, 0, 0, 0.4);
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0px;
+    }
+    .arrow {
+        position: absolute;
+        bottom: 8%;
+        left: 45%;
+        width: 40px;
+        z-index: 5;
+        height: 40px;
+        -webkit-animation: bounce 2s infinite;
+        -moz-animation: bounce 2s infinite;
+        -o-animation: bounce 2s infinite;
+        -ms-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+    }
+    .img-pro a span {
+        position: absolute;
+        top: 30%;
+        left: 15%;
+        font-size: 35px;
+    }
+    .navbar .glyphicon {
+        padding: 6px 15px;
+    }
+    .nav-group {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+    .welcome,
+    .name {
+        position: absolute;
+        width: 100%;
+        left: 0;
+    }
+    .hello {
+        font-size: 40px;
+        text-align: center;
+    }
+    .iam {
+        text-align: center;
+        font-size: 27px;
+    }
+    .fname,
+    .email,
+    .footer h2,
+    .reach {
+        font-size: 20px;
+    }
+    .iul {
+        border-top: 0.2px solid rgba(255, 255, 255, 0.3);
+        border-left: 0px;
+        padding: 20px 15px;
+    }
+    .footer .my-img {
+        width: 180px;
+        height: 180px;
+    }
+    .col-reach {
+        margin: 0px 60px;
+    }
+}
+
+
+}
