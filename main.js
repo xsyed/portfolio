@@ -19,7 +19,7 @@ $(document).ready(function () {
             }, time);
     }
     $(window).on("load",function(){
-        changeImage(".bg", images, 15000);
+        changeImage(".bg", images, 8000);
     });
     
 
