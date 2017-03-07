@@ -110,7 +110,7 @@ body {
 }
 
 .iul {
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 10px 90px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
@@ -121,6 +121,27 @@ body {
     padding: 4px 0px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+}
+
+.iul li .resume {
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+    display: block;
+    
+    border-radius: 8px;
+    background-color: #337ab7;
+    color: white;
+}
+
+.iul li .resume:hover {
+    text-decoration: none;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    box-shadow: 0px 21px 73px -7px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .glyphicon-send {
