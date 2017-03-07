@@ -18,7 +18,9 @@ $(document).ready(function () {
                 curImg++;
             }, time);
     }
-
-    changeImage(".bg", images, 10000);
+    $(window).on("load",function(){
+        changeImage(".bg", images, 15000);
+    });
+    
 
 });
