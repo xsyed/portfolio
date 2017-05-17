@@ -323,7 +323,12 @@ $(document).ready(function () {
                     console.log(ops);
                     var result = execute(num, ops);
                     //                console.log(result);
+                    if(isNaN(result)){
+                        $(".upip").val(result);
+                    }else{
                     $(".upip").val(result.toFixed(6));
+                        
+                    }
                     backAt = true;
                     hit = true;
                     dotHit = true;
