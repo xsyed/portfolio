@@ -12,7 +12,7 @@ $(document).ready(function () {
         if (s.length >= 3) {
             console.log($('.upip').val());
             var repRegex = /x/g;
-            var numRegex = /(\w+\.\w+|\w+|\-\w+)/g;
+            var numRegex = /((\w+\.\w+|\-\w+\.\w+)|\w+|\-\w+)/g;
             //var opRegex = /(\+|\*|\-|\/)/g;
             s = s.replace(repRegex, "*");
             var opRegex = /((\*|\/)(?=\-\w)|(\/)|(\+)|(\*)|([^\*\/])\-(?=\w))/g;
