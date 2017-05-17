@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width , maximum-scale=1.0 , minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(window).on("load", function() {
+            $(".loader").fadeOut(300);
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div class="container">
+
+        <table class="wholetab" style="width:100%;heightL100%;position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <tr style="height: 15%;">
+                <td colspan="2"><input class="upip" type="text" disabled></td>
+            </tr>
+            <!--
+            <tr style="height: 15%;" >
+                <td colspan="2"><input class="dowip" type="text" value="12345" disabled></td>
+            </tr>
+-->
+            <tr class="meat" style="height: 70%;">
+                <td>
+                    <table class="numtab" cellspacing="6">
+                        <tr>
+                            <td><button class="seven">7</button></td>
+                            <td><button class="eight">8</button></td>
+                            <td><button class="nine">9</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="four">4</button></td>
+                            <td><button class="five">5</button></td>
+                            <td><button class="six">6</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="three">3</button></td>
+                            <td><button class="two">2</button></td>
+                            <td><button class="one">1</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="zero">0</button></td>
+                            <td><button class="dot">.</button></td>
+                            <td><button class="equals">=</button></td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td>
+                    <table class="optab">
+<!--
+                        <tr>
+                            <td><button class="clear">CLR</button></td>
+                        </tr>
+-->
+                        <tr>
+                            <td><button class="del">DEL</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="divide">/</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="multiply">x</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="subtract">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="add">+</button></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

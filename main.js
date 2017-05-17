@@ -18,12 +18,12 @@ $(document).ready(function () {
                 curImg++;
             }, time);
     }
-    $(window).on("load",function(){
+    $(window).on("load", function () {
         changeImage(".bg", images, 8000);
     });
-    
-     $('.email').click(function () {
+
+    $('.email').click(function () {
         window.location.href = "mailto:me@syedsamiuddin.me";
-      });
+    });
 
 });
