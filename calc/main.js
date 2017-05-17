@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     var hit = true; // checks if operator is pressed
     var dotHit = true; // checks for decimal enter, prevents two decimal points
     var backAt = false; // i think it is for continuation of answer after equals
@@ -12,7 +13,7 @@ $(document).ready(function () {
         if (s.length >= 3) {
             console.log($('.upip').val());
             var repRegex = /x/g;
-            var numRegex = /(\w+\.\w+|\w+|\-\w+)/g;
+            var numRegex = /((\w+\.\w+|\-\w+\.\w+)|\w+|\-\w+)/g;
             //var opRegex = /(\+|\*|\-|\/)/g;
             s = s.replace(repRegex, "*");
             var opRegex = /((\*|\/)(?=\-\w)|(\/)|(\+)|(\*)|([^\*\/])\-(?=\w))/g;
@@ -322,7 +323,7 @@ $(document).ready(function () {
                     console.log(ops);
                     var result = execute(num, ops);
                     //                console.log(result);
-                    $(".upip").val(result);
+                    $(".upip").val(result.toFixed(6));
                     backAt = true;
                     hit = true;
                     dotHit = true;
