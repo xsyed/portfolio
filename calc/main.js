@@ -323,27 +323,35 @@ $(document).ready(function () {
             case 'del':
                 vibrate('e');
 
-                //$(".upip").val('');
-                //console.log(lg);
-
                 $('.upip').val($('.upip').val().slice(0, -1));
 
-                var pressTimer;
+                //                
+                //                
+                //
+                //                //                var pressTimer;
+                //                //
+                //                //                $(".del").mouseup(function () {
+                //                //                    clearTimeout(pressTimer);
+                //                //                    // Clear timeout
+                //                //                    return false;
+                //                //                }).mousedown(function () {
+                //                //                    // Set timeout
+                //                //                    pressTimer = window.setTimeout(function () {
+                //                //                       vibrate('ac');
+                //                            $('.upip').val('');
+                //                //
+                //                //                    }, 500);
+                //                //                    return false;
+                //                //                });
 
-                $(".del").mouseup(function () {
-                    clearTimeout(pressTimer);
-                    // Clear timeout
-                    return false;
-                }).mousedown(function () {
-                    // Set timeout
-                    pressTimer = window.setTimeout(function () {
-                        vibrate('ac');
-                        $('.upip').val('');
+                hit = true;
+                dotHit = true;
+                subhit = false;
+                break;
+            case 'clr':
 
-                    }, 500);
-                    return false;
-                });
-
+                vibrate('ac');
+                $('.upip').val('');
                 hit = true;
                 dotHit = true;
                 subhit = false;
@@ -438,7 +446,7 @@ $(document).ready(function () {
         //        console.log(lg);
 
     });
-    
+
     var flag = isDay();
     $('.bulb img').click(function () {
 

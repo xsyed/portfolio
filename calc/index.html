@@ -8,31 +8,30 @@
     <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width , maximum-scale=1.0 , minimum-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         $(window).on("load", function() {
             $(".loader").fadeOut(300);
             var d = new Date();
             var h = d.getHours();
-            if(h >=8 && h <=21){
-                $('*').css('background-color','white');
+            if (h >= 8 && h <= 21) {
+                $('*').css('background-color', 'white');
                 $('.upip').css({
-                    'color':'black',
-                    'background-color':'white'
+                    'color': 'black',
+                    'background-color': 'white'
                 });
                 $('.wholetab input[type=text]').css({
-                    'background-color':'white',
-                    'color':'black'
+                    'background-color': 'white',
+                    'color': 'black'
                 });
-                $('.optab').css('background-color','aqua');
+                $('.optab').css('background-color', 'aqua');
                 $('.optab td button').css({
-                    'background-color':'aqua',
-                    'color':'black'
+                    'background-color': 'aqua',
+                    'color': 'black'
                 });
-                $('.optab tr td').css('background-color','aqua');
-                $('.numtab button').css('color','rgb(72, 72, 72)');
-                $(".bulb img").attr('src','black-bulb.png');
+                $('.optab tr td').css('background-color', 'aqua');
+                $('.numtab button').css('color', 'rgb(72, 72, 72)');
+                $(".bulb img").attr('src', 'black-bulb.png');
             }
         });
 
@@ -81,14 +80,14 @@
                 </td>
                 <td>
                     <table class="optab disable-select">
-<!--
+                        
                         <tr>
-                            <td><button class="clear">CLR</button></td>
+                            <td><button class="clr">CLR</button></td>
                         </tr>
--->
+
                         <tr>
                             <td>
-                            <button class="del">DEL</button>
+                                <button class="del">DEL</button>
                             </td>
                         </tr>
                         <tr>
