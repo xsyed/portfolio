@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     var hit = true; // checks if operator is pressed
     var dotHit = true; // checks for decimal enter, prevents two decimal points
     var backAt = false; // i think it is for continuation of answer after equals
@@ -67,7 +67,7 @@ $(document).ready(function () {
                 } else if (num1 == 0 && num2 == 0) {
                     return 0;
                 } else {
-                    return num1 / num2;
+                    return (num1 / num2).toFixed(5);
                 }
         }
     }
@@ -257,26 +257,29 @@ $(document).ready(function () {
                 break;
             case 'divide':
                 vibrate('o');
-
-                //                console.log(lg);
-                if (hit) {
+                var len = $('.upip').val().length;
+//                console.log(len);
+                if (hit && len>0) {
                     $(".upip").val($(".upip").val() + "/");
                     hit = false;
                     dotHit = true;
                     subhit = true;
                     backAt = false;
+                } else if (len <= 0) {
                 }
                 break;
             case 'multiply':
                 vibrate('o');
-
+                var len = $('.upip').val().length;
                 //                console.log(lg);
-                if (hit) {
+                if (hit && len>0 ) {
                     $(".upip").val($(".upip").val() + "x");
                     hit = false;
                     dotHit = true;
                     subhit = true;
                     backAt = false;
+                } else if (len <= 0) {
+                    break;
                 }
                 break;
             case 'subtract':
@@ -323,11 +326,11 @@ $(document).ready(function () {
                     console.log(ops);
                     var result = execute(num, ops);
                     //                console.log(result);
-                    if(isNaN(result)){
+                    if (isNaN(result)) {
                         $(".upip").val(result);
-                    }else{
-                    $(".upip").val(result.toFixed(6));
-                        
+                    } else {
+                        $(".upip").val(result);
+
                     }
                     backAt = true;
                     hit = true;
