@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400|Roboto+Condensed');
 
 /*@import "reset.css"*/
 
@@ -9,6 +9,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: black;
+}
+
+.wholetab {
+    margin: auto;
+    width: 500px;
+    height: 100vh; 
 }
 
 .loader {
@@ -24,14 +39,61 @@
 .wholetab input[type=text] {
     width: 100%;
     height: 100%;
+    margin: 20px 0px 0px 0px;
+    border: none;
+    text-align: right;
+    letter-spacing: 5px;
+    font-size: 35px;
+    padding: 50px 10px 20px 10px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    background: black;
+}
+
+.numtab {
+    width: 100%;
+    height: 100%;
+}
+
+.optab {
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+    /*    background-color: aqua;*/
+    /*    background-color: rgba(250, 145, 70, 0.66);*/
+    background-color: #424242;
+    border-color: #424242;
+    
+}
+
+.numtab td button {
+    font-size: 40px;
+}
+
+.optab td button {
+    font-size: 30px;
+    color: #ddd;
+    background-color: #424242;
+    outline: none;
+    border-color: #424242;
+    
+        border:none;
+}
+
+
+/*
+.wholetab input[type=text] {
+    width: 100%;
+    height: 100%;
     margin: 0px;
     border: none;
     z-index: 9999;
     color: black;
     text-align: right;
     background: #fff;
-    padding: 50px 10px;
+    
 }
+*/
 
 input[type=text]::-webkit-inner-spin-button,
 input[type=text]::-webkit-outer-spin-button {
@@ -63,8 +125,7 @@ input[type=text]::-webkit-outer-spin-button {
     background-color: transparent;
     border: none;
     font-weight: 300;
-    color: black;
-    /*    border: 0.3px solid red;*/
+    color: #ddd;
 }
 
 button {
@@ -98,7 +159,8 @@ button {
     height: 50px;
     margin-left: -25px;
     margin-top: -25px;
-    background: rgb(71, 204, 112);
+    /*    background: rgb(71, 204, 112);*/
+    background: #E040FB;
     border-radius: 100%;
     opacity: .6;
     -webkit-transform: scale(0);
@@ -126,6 +188,9 @@ button {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 18px;
+    background-color: #424242;
+    border-color:#424242;
+    border:none;
 }
 
 .optab button {
@@ -193,7 +258,7 @@ button {
     visibility: visible;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:550px) {
     .container {
         width: 100%;
         height: 100%;
@@ -201,30 +266,14 @@ button {
     .wholetab {
         width: 100%;
         height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
-    .wholetab input[type=text] {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        border: none;
-        text-align: right;
-        letter-spacing: 5px;
-        font-size: 30px;
+    .bulb {
+        display: none;
     }
-    .numtab {
-        width: 100%;
-        height: 100%;
-    }
-    .optab {
-        width: 100%;
-        height: 100%;
-        border-radius: 1px;
-        background-color: aqua;
-    }
-    .numtab td button {
-        font-size: 35px;
-    }
-    .optab td button {
-        font-size: 25px;
-    }
+}
 }

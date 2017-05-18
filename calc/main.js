@@ -5,6 +5,73 @@ $(document).ready(function () {
     var backAt = false; // i think it is for continuation of answer after equals
     var subhit = false; // flag used enter minus in division and multiplication
 
+
+    function isDay() {
+
+        var d = new Date();
+        var h = d.getHours();
+        if (h >= 8 && h <= 21)
+            return true;
+        else
+            return false;
+    }
+
+
+    function dayMode() {
+
+
+        $('*').css({
+            'background-color': 'white',
+            'transition': '0.5s ease-out all'
+        });
+        $('.upip').css({
+            'color': 'black',
+            'background-color': 'white'
+        });
+        $('.wholetab input[type=text]').css({
+            'background-color': 'white',
+            'color': 'black'
+        });
+        $('.optab').css('background-color', 'aqua');
+        $('.optab td button').css({
+            'background-color': 'aqua',
+            'color': 'black'
+        });
+        $('.optab tr td').css('background-color', 'aqua');
+        $('.numtab button').css('color', 'rgb(72, 72, 72)');
+
+    }
+
+    function nightMode() {
+        $('*').css({
+            'background-color': 'black',
+            'transition': '0.5s ease-out all'
+        });
+        $('.upip').css({
+            'color': 'white',
+            'background-color': 'black'
+        });
+        $('.wholetab input[type=text]').css({
+            'background-color': 'black',
+            'color': 'white'
+        });
+        $('.optab').css('background-color', '#424242');
+        $('.optab td button').css({
+            'background-color': '#424242',
+            'color': 'white'
+        });
+        $('.optab tr td').css('background-color', '#424242');
+        $('.numtab button').css('color', '#ddd');
+
+    }
+
+
+
+    function isInt(n) {
+        return n % 1 === 0;
+    }
+
+
     function gather() {
         /*
          * Some Dark Magic is used here! O_O
@@ -56,10 +123,10 @@ $(document).ready(function () {
             case '-':
                 if (num2 < 0) {
                     num2 = (num2 * (-1));
-                    console.log(num1 + " " + num2);
+                    //                    console.log(num1 + " " + num2);
                     return num1 - num2;
                 }
-                console.log(num1 + " " + num2);
+                //                console.log(num1 + " " + num2);
                 return num1 - num2;
             case '/':
                 if (num2 == 0 && num1 != 0) {
@@ -67,7 +134,11 @@ $(document).ready(function () {
                 } else if (num1 == 0 && num2 == 0) {
                     return 0;
                 } else {
-                    return (num1 / num2).toFixed(5);
+                    var n = num1 / num2;
+                    if (!isInt(n))
+                        return n.toFixed(5);
+                    else
+                        return n;
                 }
         }
     }
@@ -86,6 +157,9 @@ $(document).ready(function () {
                     break;
                 case 'o':
                     navigator.vibrate(50);
+                    break;
+                case 'ac':
+                    navigator.vibrate(100);
                     break;
             }
         }
@@ -249,8 +323,27 @@ $(document).ready(function () {
             case 'del':
                 vibrate('e');
 
-                $(".upip").val('');
-                //                console.log(lg);
+                //$(".upip").val('');
+                //console.log(lg);
+
+                $('.upip').val($('.upip').val().slice(0, -1));
+
+                var pressTimer;
+
+                $(".del").mouseup(function () {
+                    clearTimeout(pressTimer);
+                    // Clear timeout
+                    return false;
+                }).mousedown(function () {
+                    // Set timeout
+                    pressTimer = window.setTimeout(function () {
+                        vibrate('ac');
+                        $('.upip').val('');
+
+                    }, 500);
+                    return false;
+                });
+
                 hit = true;
                 dotHit = true;
                 subhit = false;
@@ -258,21 +351,20 @@ $(document).ready(function () {
             case 'divide':
                 vibrate('o');
                 var len = $('.upip').val().length;
-//                console.log(len);
-                if (hit && len>0) {
+                //                console.log(len);
+                if (hit && len > 0) {
                     $(".upip").val($(".upip").val() + "/");
                     hit = false;
                     dotHit = true;
                     subhit = true;
                     backAt = false;
-                } else if (len <= 0) {
-                }
+                } else if (len <= 0) {}
                 break;
             case 'multiply':
                 vibrate('o');
                 var len = $('.upip').val().length;
                 //                console.log(lg);
-                if (hit && len>0 ) {
+                if (hit && len > 0) {
                     $(".upip").val($(".upip").val() + "x");
                     hit = false;
                     dotHit = true;
@@ -346,5 +438,21 @@ $(document).ready(function () {
         //        console.log(lg);
 
     });
+    
+    var flag = isDay();
+    $('.bulb img').click(function () {
+
+        if (flag) {
+            nightMode();
+            $('.bulb img').attr('src', 'white-bulb.png');
+            flag = false;
+        } else {
+            dayMode();
+            $('.bulb img').attr('src', 'black-bulb.png');
+            flag = true;
+        }
+
+    });
+
 
 });
