@@ -39,7 +39,12 @@ $(document).ready(function () {
         });
         $('.optab tr td').css('background-color', 'aqua');
         $('.numtab button').css('color', 'rgb(72, 72, 72)');
-
+//        $(".credit").css('color', 'black');
+        $(".credit a").css('color', 'black');
+        $(".credit a:hover").css({
+            'color': '#00ff62',
+            'transition': 'color 0.2s ease-out'
+        });
     }
 
     function nightMode() {
@@ -62,6 +67,12 @@ $(document).ready(function () {
         });
         $('.optab tr td').css('background-color', '#424242');
         $('.numtab button').css('color', '#ddd');
+//        $(".credit").css('color', '#ddd');
+        $(".credit a").css('color', '#ddd');
+        $(".credit a:hover").css({
+            'color': '#00ff62',
+            'transition': 'color 0.2s ease-out'
+        });
 
     }
 
