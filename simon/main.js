@@ -243,10 +243,17 @@ $(document).ready(function () {
         }
 
         if (isXerox == false) {
-            
+
             if (isStrict) {
+                p(5);
+                setTimeout(function () {
+                    dim(5);
+                }, 600);
                 seq = [];
-                start();
+                setTimeout(function () {
+                    start();
+                }, 1500);
+
             } else {
                 p(5);
                 setTimeout(function () {
@@ -256,24 +263,24 @@ $(document).ready(function () {
                     playSeq(bruh);
                 }, 1500);
             }
-            
+
         } else {
-            
+
             if (seq.length == conf.length && isXerox) {
-                
+
                 if (seq.length >= 20) {
                     victory();
                     seq = [];
                     start();
                 } else {
-                    
+
                     setTimeout(function () {
                         start();
                     }, (1500) - (seq.length * 30));
                 }
 
                 isXerox = !isXerox;
-                
+
             } else {
                 bruh();
                 isXerox = !isXerox;
