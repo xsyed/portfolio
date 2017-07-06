@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#222">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0 , minimum-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simon Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Play" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+       
+        <div class="crust">
+
+            <div class="mantle">
+                <div class="top">
+                    <div class="topleft block unclickable"></div>
+                    <div class="topright block unclickable"></div>
+                </div>
+                <div class="bottom">
+                    <div class="bottomleft block unclickable"></div>
+                    <div class="bottomright block unclickable"></div>
+                </div>
+            </div>
+
+            <div class="core">
+               
+                <div class="controls">
+                   
+                    <div class="name">
+                        <h1>Simon<sup>&reg;</sup></h1>
+                    </div>
+
+                    <div class="middle">
+                        <div class="count">
+                            <p class="countname">Count</p>
+                            <div class="countnum off">--</div>
+                        </div>
+                        <div class="start">
+                            <p class="startname">Start</p>
+                            <div class="startbubble clickable"></div>
+                        </div>
+                        <div class="strict">
+                            <p class="strictname">Strict</p>
+                            <div class="strictbubble clickable"></div>
+                            <div class="led led-off"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="onoff">
+                        <div class="switch">
+                            <input type="checkbox" class="tgl" id="swt" />
+                            <label for="swt" class="tgl-btn"></label>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

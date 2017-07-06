@@ -1,0 +1,481 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    user-select: none;
+}
+
+body {
+    background: url('bg.jpg');
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.crust {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 460px;
+    height: 460px;
+    border-radius: 100%;
+    background: #333;
+    -webkit-box-shadow: 0px 3px 11px 6px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: 0px 3px 11px 6px rgba(0, 0, 0, 0.53);
+    box-shadow: 0px 3px 11px 6px rgba(0, 0, 0, 0.53);
+}
+
+.core {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    background: #ece7ee;
+    border: 15px solid #333;
+    border-radius: 100%;
+    /*    z-index: 8;*/
+}
+
+.mantle {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.top,
+.bottom {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+}
+
+.top div,
+.bottom div {
+    margin: 10px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.block {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 0 100px 200px;
+    border-color: transparent transparent transparent;
+    border-top-left-radius: 100%;
+}
+
+.topleft {
+    background: #00a74a;
+}
+
+.topright {
+    background: #9f0f17;
+    transform: rotate(90deg);
+}
+
+.bottomleft {
+    background: #cca707;
+    transform: rotate(-90deg);
+}
+
+.bottomright {
+    background: #094a8f;
+    transform: rotate(-180deg);
+}
+
+.topleft:active,
+.gb {
+    /*    transition: background 1s;*/
+    background: rgba(71, 237, 144, 0.83);
+}
+
+.topright:active,
+.rb {
+    /*    transition: background 1s;*/
+    background: rgba(255, 48, 59, 0.8);
+}
+
+.bottomleft:active,
+.yb {
+    /*    transition: 0.3s;*/
+    background: rgb(230, 199, 66);
+}
+
+.bottomright:active,
+.bb {
+    /*    transition: 0.3s;*/
+    background: rgba(51, 132, 216, 0.74);
+}
+
+.controls {
+    align-self: center;
+}
+
+.name h1 {
+    font-family: 'Play', sans-serif;
+    color: #222;
+    /*    letter-spacing: 2px;*/
+    font-size: 30px;
+    text-align: center;
+}
+
+.name sup {
+    font-size: 14px;
+}
+
+.middle {
+    /*    border: 1px solid red;*/
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    margin-top: 5px;
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+}
+
+.count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    /*    border: 1px solid red;*/
+}
+
+.countnum {
+    width: 50px;
+    height: 40px;
+    border: 4px solid #222;
+    border-radius: 10px;
+    padding: 3px 0px;
+    background: #32050C;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 3px;
+}
+
+.on {
+    color: #DC0D29;
+}
+
+.off {
+    color: #430710;
+}
+
+.countname,
+.strictname,
+.startname {
+    font-size: 15px;
+    text-align: center;
+    color: #222;
+    /*    margin-top: 5px;    */
+}
+
+.countname {
+    margin-top: -3px;
+}
+
+.start,
+.strict {
+    padding-top: 5px;
+    display: flex;
+    /*    align-content: center;*/
+    /*    justify-content: center;*/
+    flex-direction: column;
+    /*    border: 1px solid red;*/
+    width: 50px;
+}
+
+.startbubble {
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 4px solid #222;
+    background: #FC0102;
+    margin-top: 5px;
+    box-shadow: 0px 2px 3px #222;
+}
+
+.startbubble:active,
+.strictbubble:active {
+    position: relative;
+    box-shadow: 0 5px #666;
+    top: 3px;
+}
+
+.startname {
+    margin-top: -3px;
+}
+
+.strictname {
+    margin-top: -3px;
+}
+
+.clickable {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.unclickable {
+    pointer-events: none;
+    cursor: default;
+}
+
+.led-off {
+    background: #32050C;
+}
+
+.led-on {
+    background: #DC0D29;
+}
+
+.strictbubble {
+    background: yellow;
+    border-radius: 100%;
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #222;
+    margin: 5px 0px;
+    box-shadow: 0px 2px 3px #222;
+}
+
+.led {
+    width: 8px;
+    height: 8px;
+    text-align: center;
+    margin: 0px auto;
+    /*    align-self: center;*/
+    border: 1px solid #222;
+    border-radius: 100%;
+}
+
+.onoff {
+    /*   border: 1px solid red;*/
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.switch {
+    align-self: center;
+    margin: 10px 0px 0px 0px;
+}
+
+.tgl {
+    display: none;
+}
+
+.tgl+.tgl-btn {
+    outline: 0;
+    display: block;
+    width: 3em;
+    height: 1.8em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 2px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    /*background: #fff;*/
+    /*    background: #ece7ee;*/
+    background: #333;
+    border: 4px solid #333;
+    border-radius: 2em;
+}
+
+.tgl+.tgl-btn:after,
+.tgl+.tgl-btn:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+}
+
+.tgl+.tgl-btn:after {
+    left: 0;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    background: red;
+    content: "";
+    border-radius: 1em;
+}
+
+.tgl:checked+.tgl-btn {
+    border: 4px solid #333;
+}
+
+.tgl+.tgl-btn:before {
+    display: none;
+}
+
+.tgl:checked+.tgl-btn:after {
+    /*left: 50%;*/
+    left: 50%;
+    background: lime;
+}
+
+@media only screen and (max-width:600px) {
+    .container {
+        height: 90vh;
+    }
+    .crust {
+        width: 360px;
+        height: 360px;
+    }
+    .block {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 75px 0 75px 150px;
+        border-color: transparent transparent transparent;
+        border-top-left-radius: 100%;
+    }
+    .top div,
+    .bottom div {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+    .core {
+        width: 150px;
+        height: 150px;
+        border: 10px solid #333;
+    }
+    .name h1 {
+        font-size: 20px;
+    }
+    .name sup {
+        font-size: 10px;
+    }
+    .count,
+    .start,
+    .strict {
+        width: 40px;
+    }
+    .countnum {
+        width: 40px;
+        height: 30px;
+        font-size: 12px;
+    }
+    .strictbubble,
+    .startbubble {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #222;
+    }
+    .countname,
+    .startname,
+    .strictname {
+        font-size: 12px;
+    }
+    .tgl+.tgl-btn {
+        width: 2.3em;
+        height: 1.5em;
+        padding: 0px;
+    }
+    .switch {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        margin: 5px 0px 0px 0px;
+    }
+}
+
+@media only screen and (max-width:380px) {
+    body {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .container {
+        height: 87vh;
+    }
+    .crust {
+        width: 300px;
+        height: 300px;
+    }
+    .block {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 60px 0 60px 120px;
+        border-color: transparent transparent transparent;
+        border-top-left-radius: 100%;
+    }
+    .top div,
+    .bottom div {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+    .middle {
+        margin: 0px;
+    }
+    .core {
+        width: 130px;
+        height: 130px;
+        border: 7px solid #333;
+    }
+    .name {
+        visibility: hidden;
+    }
+    .count,
+    .start,
+    .strict {
+        width: 35px;
+    }
+    .countnum {
+        width: 32px;
+        height: 30px;
+        border: 2px solid #222;
+        font-size: 12px;
+        padding: 3px 0px;
+    }
+    .strictbubble,
+    .startbubble {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #222;
+    }
+    .countname,
+    .startname,
+    .strictname {
+        font-size: 12px;
+    }
+    .tgl+.tgl-btn {
+        width: 2.2em;
+        height: 1.5em;
+    }
+    .switch {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        padding: 0px;
+        margin: 2px 0px 0px 0px;
+    }
+}
