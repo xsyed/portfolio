@@ -28,9 +28,9 @@ body {
     height: 460px;
     border-radius: 100%;
     background: #333;
-    -webkit-box-shadow: 0px 3px 11px 6px rgba(0, 0, 0, 0.53);
-    -moz-box-shadow: 0px 3px 11px 6px rgba(0, 0, 0, 0.53);
-    box-shadow: 0px 3px 11px 6px rgba(0, 0, 0, 0.53);
+    -webkit-box-shadow: 2px 5px 14px 9px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 2px 5px 14px 9px rgba(0, 0, 0, 0.52);
+    box-shadow: 2px 5px 14px 9px rgba(0, 0, 0, 0.52);
 }
 
 .core {
@@ -144,6 +144,7 @@ body {
 .name h1 {
     font-family: 'Play', sans-serif;
     color: #222;
+    text-shadow: 1px 4px 4px rgba(51, 51, 51, 0.72);
     /*    letter-spacing: 2px;*/
     font-size: 27px;
     text-align: center;
@@ -201,11 +202,13 @@ body {
     font-size: 15px;
     text-align: center;
     color: #222;
+    text-shadow: 1px 4px 4px rgba(51, 51, 51, 0.72);
     /*    margin-top: 5px;    */
 }
 
 .countname {
     margin-top: -3px;
+    text-shadow: 1px 4px 4px rgba(51, 51, 51, 0.72);
 }
 
 .start,
@@ -219,6 +222,14 @@ body {
     width: 50px;
 }
 
+.startbubble,
+.strictbubble,
+.countnum {
+    -webkit-box-shadow: 2px 5px 14px 2px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 2px 5px 14px 2px rgba(0, 0, 0, 0.52);
+    box-shadow: 2px 5px 14px 2px rgba(0, 0, 0, 0.52);
+}
+
 .startbubble {
     align-self: center;
     width: 30px;
@@ -227,7 +238,6 @@ body {
     border: 4px solid #222;
     background: #FC0102;
     margin-top: 5px;
-    box-shadow: 0px 2px 3px #222;
 }
 
 .startbubble:active,
@@ -271,7 +281,6 @@ body {
     height: 30px;
     border: 4px solid #222;
     margin: 5px 0px;
-    box-shadow: 0px 2px 3px #222;
 }
 
 .led {
@@ -293,6 +302,7 @@ body {
 }
 
 .onofflabel {
+    text-shadow: 1px 4px 4px rgba(51, 51, 51, 0.72);
     align-self: center;
     font-size: 13px;
     color: #222;
@@ -302,6 +312,8 @@ body {
 .switch {
     align-self: center;
     margin: 2px 0px 0px 0px;
+    box-shadow: 2px 5px 14px 2px rgba(0, 0, 0, 0.52);
+    border-radius: 100%;
 }
 
 .tgl {
