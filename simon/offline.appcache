@@ -1,0 +1,17 @@
+CACHE MANIFEST
+# Version 1
+index.html
+style.css
+main.js
+s1.mp3
+s2.mp3
+s3.mp3
+s4.mp3
+buzzer.mp3
+
+NETWORK:
+*
+
+FALLBACK:
+
+

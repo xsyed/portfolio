@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="offline.appcache">
 
 <head>
     <meta charset="UTF-8">
     <meta name="theme-color" content="#222">
+    <meta name="description" content="Simon game, created by Syed Samiuddin.">
+    <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, maximum-scale=1.0 , minimum-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Simon Game</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Play" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container">
-       
+
         <div class="crust">
 
             <div class="mantle">
@@ -28,9 +31,9 @@
             </div>
 
             <div class="core">
-               
+
                 <div class="controls">
-                   
+
                     <div class="name">
                         <h1>Simon<sup>&reg;</sup></h1>
                     </div>
@@ -53,6 +56,9 @@
                     </div>
 
                     <div class="onoff">
+                        <div class="onofflabel">
+                            OFF - ON
+                        </div>
                         <div class="switch">
                             <input type="checkbox" class="tgl" id="swt" />
                             <label for="swt" class="tgl-btn"></label>

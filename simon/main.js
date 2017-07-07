@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     var isOn = false,
@@ -12,7 +13,7 @@ $(document).ready(function () {
         yellow: new Audio('s4.mp3'),
         buzzer: new Audio('buzzer.mp3')
     };
-
+    
     var seq = [],
         conf = [];
 
@@ -31,27 +32,27 @@ $(document).ready(function () {
             case 'topleft':
             case 1:
                 sound.green.play();
-                vib('n');
+                //vib('n');
                 break;
             case 'topright':
             case 2:
                 sound.red.play();
-                vib('n');
+                //vib('n');
                 break;
             case 'bottomleft':
             case 3:
                 sound.yellow.play();
-                vib('n');
+                //vib('n');
                 break;
             case 'bottomright':
             case 4:
                 sound.blue.play();
-                vib('n');
+                //vib('n');
                 break;
             case 'all':
             case 5:
                 sound.buzzer.play();
-                vib('n');
+                //vib('n');
                 break;
         }
     }
@@ -135,7 +136,7 @@ $(document).ready(function () {
 
 
     function playSeq(bruh) {
-        console.log('in playSeq()');
+        //console.log('in playSeq()');
         var len = seq.length;
         for (var i = 0; i < seq.length; i++) {
             (function (inx) {
@@ -169,7 +170,7 @@ $(document).ready(function () {
                     playSeq(bruh);
                 }
             }
-            console.log('gotcha');
+            //console.log('gotcha');
         }, 8000);
     }
 
@@ -248,20 +249,20 @@ $(document).ready(function () {
                 p(5);
                 setTimeout(function () {
                     dim(5);
-                }, 600);
+                }, 700);
                 seq = [];
                 setTimeout(function () {
                     start();
-                }, 1500);
+                }, 1800);
 
             } else {
                 p(5);
                 setTimeout(function () {
                     dim(5);
-                }, 600);
+                }, 700);
                 setTimeout(function () {
                     playSeq(bruh);
-                }, 1500);
+                }, 1800);
             }
 
         } else {
@@ -311,20 +312,21 @@ $(document).ready(function () {
         }
     }
 
-    $(".top > div,.bottom > div").click(function () {
+    $(".top > div,.bottom > div").click(function (e) {
+        e.stopPropagation();
         clearTimeout(deathclock);
         var elem = this.className;
         elem = elem.split(' ');
         playSound(elem[0]);
         addConf(elem[0]);
         verfiy();
-
         //console.log('seq' + seq);
         //console.log('conf' + conf);
     });
 
 
-    $('.tgl').click(function () {
+    $('.tgl').click(function (e) {
+        e.stopPropagation();
         isOn = !isOn;
         seq = [];
         conf = [];
@@ -342,7 +344,9 @@ $(document).ready(function () {
 
     });
 
-    $('.start').click(function () {
+    $('.start').click(function (e) {
+        e.stopPropagation();
+        
         if (isOn) {
             $('.top > div,.bottom > div').removeClass('unclickable');
             $('.top > div,.bottom > div').addClass('clickable');
@@ -356,7 +360,9 @@ $(document).ready(function () {
     });
 
 
-    $('.strict').click(function () {
+    $('.strict').click(function (e) {
+        e.stopPropagation();
+        
         if (isOn) {
             isStrict = !isStrict;
             if (isStrict) {
