@@ -108,8 +108,15 @@ $(document).ready(function () {
                 //            $('.timer p').html("Time Up!");
 
                 if (brkbool) {
-                    secOff = 60;
-                    sesOff = (brkVal % 60) - 1;
+                    if ((brkVal % 60) == 0) {
+                        sesOff = (brkVal % 60);
+                        secOff = 0;
+                        
+                    } else {
+                        sesOff = (brkVal % 60) - 1;
+                        secOff = 60;
+                        
+                    }
                     hours = Math.floor(brkVal / 60);
                     brkbool = false;
                     isBrkOn = true;
@@ -141,7 +148,6 @@ $(document).ready(function () {
                         secOff = 60;
                         bcount = bvalue;
                         scount = svalue;
-                        $(document).prop('title','Time Up!!');
                         clearInterval(timeVal);
                     }
 
@@ -190,7 +196,14 @@ $(document).ready(function () {
         if (sesVal > 60) {
             hours = Math.floor(sesVal / 60);
             sesVal = sesVal % 60;
-            sesOff = sesVal - 1;
+            if (sesVal > 0) {
+                sesOff = sesVal - 1;
+                secOff = 60;
+            } else {
+                sesOff = sesVal;
+                secOff = 0;
+            }
+
         }
 
         console.log(hours + ":" + sesVal);
