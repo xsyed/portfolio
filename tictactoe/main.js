@@ -148,7 +148,7 @@ $(document).ready(function () {
                     console.log('V3');
 
                     $('.whowonstatus').html("YOU won!");
-                    fpscore++;
+                    fpscore = fpscore + 0.5;
                     $('.fscore').html(fpscore);
                 }
             }
@@ -543,7 +543,7 @@ $(document).ready(function () {
         //console.log("Final Note = "+note);
         chance = !chance;
         boardFull++;
-        //validate();
+        validate();
         full();
         playerIndicator();
 
