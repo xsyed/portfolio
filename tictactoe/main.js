@@ -39,8 +39,8 @@ $(document).ready(function () {
     function playerIndicator() {
 
         if (player == 'vs') {
-            $('.fplyr span').html('1P');
-            $('.splyr span').html('2P');
+            $('.fplyr span').html('1P [ O ]');
+            $('.splyr span').html('2P [ X ]');
         } else {
             $('.fplyr span').html('YOU [ O ]');
             $('.splyr span').html('BOT [ X ]');
@@ -646,7 +646,7 @@ $(document).ready(function () {
         reset();
         player = '';
 
-        $('.inner').toggleClass('shakeitoff');
+        $('.inner').removeClass('shakeitoff');
         $('.playerselection i').removeClass('pselected');
         $('.xoselection i').removeClass('pselected');
         $('.xoselection').hide();

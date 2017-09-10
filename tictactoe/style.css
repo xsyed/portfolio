@@ -143,6 +143,7 @@ td div {
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .op,
@@ -210,6 +211,7 @@ td div {
     user-select: none;
     padding: 0px 10px;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .restart:hover,
