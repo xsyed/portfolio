@@ -120,6 +120,7 @@ td div {
 
 .playerselection,
 .xoselection,
+.difficulty,
 .startcont {
     align-self: center;
     font-size: 25px;
@@ -127,7 +128,7 @@ td div {
     font-family: 'Overpass', sans-serif;
 }
 
-.xoselection {
+.xoselection,.difficulty {
     display: none;
 }
 
@@ -135,7 +136,9 @@ td div {
 .computer,
 .xp,
 .op,
-.start {
+.start,
+.hard,
+.easy{
     vertical-align: middle;
     font-size: 40px;
     padding: 5px;
@@ -146,10 +149,9 @@ td div {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
-.op,
-.xp {
+.hard,
+.easy {
     font-size: 18px;
-    padding: 5px;
     font-style: normal;
 }
 

@@ -4,7 +4,7 @@ $(document).ready(function () {
         spscore = 0,
         boardFull = 0,
         vc = 2,
-        dept;
+        dept, aiBlock, userBlock;
 
     var wins = [
 		[1, 2, 3],
@@ -42,8 +42,8 @@ $(document).ready(function () {
             $('.fplyr span').html('1P [ O ]');
             $('.splyr span').html('2P [ X ]');
         } else {
-            $('.fplyr span').html('YOU [ O ]');
-            $('.splyr span').html('BOT [ X ]');
+            $('.fplyr span').html('YOU [ ' + userBlock + ' ]');
+            $('.splyr span').html('BOT [ ' + aiBlock + ' ]');
         }
 
         //        if (chance) {
@@ -67,54 +67,93 @@ $(document).ready(function () {
     }
 
     function reset() {
-        chance = false;
         boardFull = 0;
         vc = 0;
         $('.whowon').hide();
 
         playerIndicator();
 
-        $('td div span').removeClass('blockActive blockInactive lock fix full red');
-
-        $('.oblock').addClass('blockActive');
-        $('.xblock').addClass('blockInactive');
-
+        if (player === 'vs') {
+            chance = false;
+            $('td div span').removeClass('blockActive blockInactive lock fix full red');
+            $('.oblock').addClass('blockActive');
+            $('.xblock').addClass('blockInactive');
+        } else {
+            if (aiBlock === 'O') {
+                $('td div span').removeClass('blockActive blockInactive lock fix full red');
+                $('.xblock').addClass('blockActive');
+                $('.oblock').addClass('blockInactive');
+            } else {
+                $('td div span').removeClass('blockActive blockInactive lock fix full red');
+                $('.oblock').addClass('blockActive');
+                $('.xblock').addClass('blockInactive');
+            }
+        }
     }
 
-    function delay() {
+    function delay(type) {
 
-        setTimeout(function () {
-            reset();
-        }, 2500);
+        if (type === "s") {
+            setTimeout(function () {
+                return true;
+            }, 1500);
+        } else {
+            setTimeout(function () {
+                reset();
+            }, 2500);
+        }
 
     }
 
     function checker(v) {
 
-        if (v == 1) {
+        if (v === 1) {
             //console.log('Player 2 won');
             $('.whowon').show();
 
-            if (player === 'vs')
+            if (player === 'vs') {
                 $('.whowonstatus').html("Player 2 won!");
-            else
-                $('.whowonstatus').html("BOT won!");
+                spscore++;
+                $('.sscore').html(spscore);
+            } else {
+                if (aiBlock === 'X') {
+                    $('.whowonstatus').html("BOT won!");
+                    spscore++;
+                    $('.sscore').html(spscore);
+                } else {
+                    console.log('V1');
+                    $('.whowonstatus').html("YOU won!");
+                    fpscore++;
+                    $('.fscore').html(fpscore);
+                }
+            }
+            delay('l');
 
-            spscore++;
-            $('.sscore').html(spscore);
-            delay();
-        } else {
+        } else if (v === 0) {
             //console.log('Player 1 won');
             $('.whowon').show();
 
-            if (player === 'vs')
-                $('.whowonstatus').html("Player 1 won!");
-            else
-                $('.whowonstatus').html("YOU won!");
+            if (player === 'vs') {
+                console.log('V2');
 
-            fpscore++;
-            $('.fscore').html(fpscore);
-            delay();
+                $('.whowonstatus').html("Player 1 won!");
+                fpscore++;
+                $('.fscore').html(fpscore);
+            } else {
+                if (aiBlock === 'O') {
+                    $('.whowonstatus').html("BOT won!");
+                    spscore++;
+                    $('.sscore').html(spscore);
+                } else {
+                    console.log('V3');
+
+                    $('.whowonstatus').html("YOU won!");
+                    fpscore++;
+                    $('.fscore').html(fpscore);
+                }
+            }
+
+            delay('l');
         }
 
     }
@@ -123,7 +162,6 @@ $(document).ready(function () {
         var oc = 0,
             xc = 0;
         var colorArr = [];
-
         //horizontal check
         for (var i = 1; i <= 3; i++) {
             for (var j = 1; j <= 3; j++) {
@@ -143,13 +181,16 @@ $(document).ready(function () {
                 //$('td div span').addClass('full');
                 boardFull = 0;
                 colorTheBlock(colorArr);
+                console.log('C1');
                 checker(vc);
                 break;
             } else if (oc == 3) {
+                console.log(oc);
                 vc = 0;
                 //$('td div span').addClass('full');
                 boardFull = 0;
                 colorTheBlock(colorArr);
+                //                console.log('C2');
                 checker(vc);
                 break;
             }
@@ -173,16 +214,16 @@ $(document).ready(function () {
                 }
             }
 
-            console.log(colorArr);
+            //console.log(colorArr);
 
             if (xc == 3) {
                 vc = 1;
                 //$('td div span').addClass('full');
                 boardFull = 0;
                 colorTheBlock(colorArr);
+                console.log('C3');
 
                 checker(vc);
-
                 vc = 2;
                 break;
             } else if (oc == 3) {
@@ -190,6 +231,8 @@ $(document).ready(function () {
                 //$('td div span').addClass('full');
                 boardFull = 0;
                 colorTheBlock(colorArr);
+                console.log('C4');
+
                 checker(vc);
                 vc = 2;
                 break;
@@ -265,7 +308,7 @@ $(document).ready(function () {
             //                console.log('draw');
             $('.whowon').show();
             $('.whowonstatus').html("It's a draw!");
-            delay();
+            delay('l');
         }
     }
 
@@ -370,26 +413,26 @@ $(document).ready(function () {
         var score = 0;
 
         // one in a row
-        if (note[combo[0] - 1] === "X") score = 1;
-        else if (note[combo[0] - 1] === "O") score = -1;
+        if (note[combo[0] - 1] === aiBlock) score = 1;
+        else if (note[combo[0] - 1] === userBlock) score = -1;
 
         // two in a row
-        if (note[combo[1] - 1] === "X") {
+        if (note[combo[1] - 1] === aiBlock) {
             if (score === 1) score = 10; // two in a row for AI
             else if (score === -1) return 0;
             else score = 1;
-        } else if (note[combo[1] - 1] === "O") {
+        } else if (note[combo[1] - 1] === userBlock) {
             if (score === -1) score = -10; // two in a row for opponet
             else if (score == 1) return 0;
             else score = -1;
         }
 
         // Three in a row
-        if (note[combo[2] - 1] === "X") {
+        if (note[combo[2] - 1] === aiBlock) {
             if (score > 0) score *= 10; // three in a row for AI
             else if (score < 0) return 0;
             else score = 1;
-        } else if (note[combo[1] - 1] === "O") {
+        } else if (note[combo[1] - 1] === userBlock) {
             if (score < 0) score *= 10; // three in a row for opponet
             else if (score > 1) return 0;
             else score = -1;
@@ -413,9 +456,9 @@ $(document).ready(function () {
 
             note[validMoves[i] - 1] = block;
 
-            if (block === "X") {
+            if (block === aiBlock) {
                 // AI turn
-                score = minMax(dept - 1, "O", alpha, beta)[0];
+                score = minMax(dept - 1, userBlock, alpha, beta)[0];
 
                 if (score > alpha) {
                     alpha = score;
@@ -423,7 +466,7 @@ $(document).ready(function () {
                 }
             } else {
                 // opponent's turn
-                score = minMax(dept - 1, "X", alpha, beta)[0];
+                score = minMax(dept - 1, aiBlock, alpha, beta)[0];
 
                 if (score < beta) {
                     beta = score;
@@ -436,7 +479,7 @@ $(document).ready(function () {
             if (alpha >= beta) break;
         }
 
-        score = (block === "X") ? alpha : beta;
+        score = (block === aiBlock) ? alpha : beta;
 
         return [score, bestMove];
 
@@ -450,38 +493,57 @@ $(document).ready(function () {
         playerIndicator();
 
         //var rand = Math.floor((Math.random()*9)+1);
-        var move = minMax(dept, "X", -Infinity, Infinity);
+        var move = minMax(dept, aiBlock, -Infinity, Infinity);
 
         var move2D = coverter(move[1]);
         //        console.log("Random = "+rand+"move2D = "+move2D);
-        console.log("move = " + move[1] + ",score =" + move[0] + " move2D = " + move2D);
+        //console.log("move = " + move[1] + ",score =" + move[0] + " move2D = " + move2D);
 
         var s, v;
 
-        // X move
-        s = $('table  tr:nth-child(' + move2D[0] + ')  td:nth-child(' + move2D[1] + ') div span:nth-child(2)');
-        v = $('table  tr:nth-child(' + move2D[0] + ')  td:nth-child(' + move2D[1] + ') div span:nth-child(1)');
+        delay('s');
+        if (aiBlock === "X") {
+            s = $('table  tr:nth-child(' + move2D[0] + ')  td:nth-child(' + move2D[1] + ') div span:nth-child(2)');
+            v = $('table  tr:nth-child(' + move2D[0] + ')  td:nth-child(' + move2D[1] + ') div span:nth-child(1)');
 
-        $(s).addClass('lock');
-        $(s).addClass('fix');
+            $(s).addClass('lock');
+            $(s).addClass('fix');
 
-        $(v).addClass('lock');
-        $(s).removeClass('blockActive');
-        $(v).removeClass('blockActive');
+            $(v).addClass('lock');
+            $(s).removeClass('blockActive');
+            $(v).removeClass('blockActive');
 
-        $("td div span:not('.lock,.oblock')").addClass('blockInactive'); //xblock
-        $("td div span:not('.lock,.oblock')").removeClass('blockActive'); //xblock
-        $("td div span:not('.lock,.xblock')").addClass('blockActive'); //oblock
-        $("td div span:not('.lock,.xblock')").removeClass('blockInactive'); //oblock
+            $("td div span:not('.lock,.oblock')").addClass('blockInactive'); //xblock
+            $("td div span:not('.lock,.oblock')").removeClass('blockActive'); //xblock
+            $("td div span:not('.lock,.xblock')").addClass('blockActive'); //oblock
+            $("td div span:not('.lock,.xblock')").removeClass('blockInactive'); //oblock
+        } else {
+            //O move for AI
+            s = $('table  tr:nth-child(' + move2D[0] + ')  td:nth-child(' + move2D[1] + ') div span:nth-child(1)');
+            v = $('table  tr:nth-child(' + move2D[0] + ')  td:nth-child(' + move2D[1] + ') div span:nth-child(2)');
 
-        console.log("After FillNote = " + note);
+            $(s).addClass('lock');
+            $(s).addClass('fix');
+
+            $(v).addClass('lock');
+            $(s).removeClass('blockActive');
+            $(v).removeClass('blockActive');
+
+            $("td div span:not('.lock,.xblock')").addClass('blockInactive'); //oblock
+            $("td div span:not('.lock,.xblock')").removeClass('blockActive'); //oblock
+            $("td div span:not('.lock,.oblock')").addClass('blockActive'); //xblock
+            $("td div span:not('.lock,.oblock')").removeClass('blockInactive'); //xblock
+        }
+
+
+        //console.log("After FillNote = " + note);
 
         note = [];
 
         //console.log("Final Note = "+note);
         chance = !chance;
         boardFull++;
-        validate();
+        //validate();
         full();
         playerIndicator();
 
@@ -502,8 +564,8 @@ $(document).ready(function () {
 
             //validate();
             if (chance) {
-                console.log('2p');
-                // X part
+                //console.log('2p');
+                // X part  
 
                 s = $(this).find('.xblock');
                 v = $(this).find('.oblock');
@@ -521,7 +583,7 @@ $(document).ready(function () {
                 $("td div span:not('.lock,.xblock')").removeClass('blockInactive'); //oblock
 
             } else {
-                console.log('1p');
+                //console.log('1p');
                 // O part
 
                 s = $(this).find('.oblock');
@@ -539,8 +601,8 @@ $(document).ready(function () {
                 $("td div span:not('.lock,.oblock')").addClass('blockActive'); //xblock
                 $("td div span:not('.lock,.oblock')").removeClass('blockInactive'); //xblock
 
-                //                if(player=='ai')
-                //                    ai();
+                //if(player=='ai')
+                //ai();
 
             }
 
@@ -555,20 +617,21 @@ $(document).ready(function () {
                 full();
                 chance = !chance;
                 validate();
+                delay('s');
                 ai();
             }
 
 
-            //            validate();
-            //            boardFull++;
+            //validate();
+            //boardFull++;
 
-            console.log(boardFull);
+            //console.log(boardFull);
 
             if (boardFull >= 9) {
-                //                console.log('draw');
+                //console.log('draw');
                 $('.whowon').show();
                 $('.whowonstatus').html("It's a draw!");
-                delay();
+                delay('l');
             }
         }
     });
@@ -576,7 +639,6 @@ $(document).ready(function () {
     function presto() {
         fpscore = 0;
         spscore = 0;
-        chance = false;
         $('.fscore').html(fpscore);
         $('.sscore').html(spscore);
         $('.menu').hide();
@@ -588,23 +650,44 @@ $(document).ready(function () {
 
         if ($('.computer').hasClass('pselected')) {
             if ($('.op').hasClass('pselected') || $('.xp').hasClass('pselected')) {
-                player = 'ai';
-                playerIndicator();
-                if ($('.op').hasClass('pselected'))
-                    dept = 5;
-                else
-                    dept = 2;
+                if ($('.hard').hasClass('pselected') || $('.easy').hasClass('pselected')) {
+                    player = 'ai';
+                    playerIndicator();
+                    if ($('.hard').hasClass('pselected'))
+                        dept = 5;
+                    else
+                        dept = 2;
 
-                presto();
+                    if ($('.op').hasClass('pselected')) {
+                        chance = false;
+                        userBlock = 'O';
+                        aiBlock = 'X';
+                        playerIndicator();
+                        $('td div span').removeClass('blockActive blockInactive lock fix full red');
+                        $('.oblock').addClass('blockActive');
+                        $('.xblock').addClass('blockInactive');
+                    } else {
+                        chance = true;
+                        aiBlock = 'O';
+                        userBlock = 'X';
+                        playerIndicator();
+                        $('td div span').removeClass('blockActive blockInactive lock fix full red');
+                        $('.xblock').addClass('blockActive');
+                        $('.oblock').addClass('blockInactive');
+                    }
+
+                    presto();
+                } else {
+                    //alert('please any select difficulty level');
+                    $('.inner').toggleClass('shakeitoff');
+                }
             } else {
-                //alert('please any select difficulty level');
                 $('.inner').toggleClass('shakeitoff');
-
-
-
             }
 
+
         } else if ($('.twoplayers').hasClass('pselected')) {
+            chance = false;
             player = 'vs';
             playerIndicator();
             presto();
@@ -613,19 +696,21 @@ $(document).ready(function () {
             $('.inner').toggleClass('shakeitoff');
         }
 
-
+        console.log('userBlock = ' + userBlock + ", aiBlock = " + aiBlock);
     });
 
     $('.computer').click(function () {
         $(this).addClass('pselected');
         $('.twoplayers').removeClass('pselected');
         $('.xoselection').show();
+        $('.difficulty').show();
     });
 
     $('.twoplayers').click(function () {
         $(this).addClass('pselected');
         $('.computer').removeClass('pselected');
         $('.xoselection').hide();
+        $('.difficulty').hide();
     });
 
     $('.op').click(function () {
@@ -636,6 +721,16 @@ $(document).ready(function () {
     $('.xp').click(function () {
         $(this).addClass('pselected');
         $('.op').removeClass('pselected');
+    });
+
+    $('.hard').click(function () {
+        $(this).addClass('pselected');
+        $('.easy').removeClass('pselected');
+    });
+
+    $('.easy').click(function () {
+        $(this).addClass('pselected');
+        $('.hard').removeClass('pselected');
     });
 
     $('.restart').click(function () {
@@ -649,7 +744,9 @@ $(document).ready(function () {
         $('.inner').removeClass('shakeitoff');
         $('.playerselection i').removeClass('pselected');
         $('.xoselection i').removeClass('pselected');
+        $('.difficulty i').removeClass('pselected');
         $('.xoselection').hide();
+        $('.difficulty').hide();
         $('.grid').hide();
         $('.menu').fadeIn(400);
         $('.menu').css('display', 'flex');
