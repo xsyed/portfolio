@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ReactJS Documentation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="main-doc">
+      <aside>
+        <header>
+          <h1>React Documentation</h1>
+        </header>
+        <nav id="navbar" onclick="activate(event)">
+          <a href="#hello_world" class="nav-link links">Hello World</a>
+          <a href="#jsx" class="nav-link links">JSX</a>
+          <a href="#render" class="nav-link links">Render</a>
+          <a href="#components_and_props" class="nav-link links"
+            >Components and Props</a
+          >
+          <a href="#state" class="nav-link links">State</a>
+          <a href="#events" class="nav-link links">Events</a>
+          <a href="#lists" class="nav-link links">Lists</a>
+          <a href="#forms" class="nav-link links">Forms</a>
+        </nav>
+      </aside>
+
+      <div id="meat">
+        <section class="main-section" id="hello_world">
+          <header>
+            <h1>Hello World</h1>
+            <p>The smallest React example looks like this:</p>
+          </header>
+
+          <article>
+            <xmp>
+  ReactDOM.render(
+      <h1>Hello, world!</h1>,
+      document.getElementById('root')
+  );
+              </xmp>
+            <p>
+              It displays a heading saying “Hello, world!” on the page.
+            </p>
+            <div class="divider"></div>
+            <h3>How to Read This Guide</h3>
+            <p>
+              In this guide, we will examine the building blocks of React apps:
+              elements and components. Once you master them, you can create
+              complex apps from small reusable pieces.
+            </p>
+            <p>
+              This is the first chapter in a step-by-step guide about main React
+              concepts. You can find a list of all its chapters in the
+              navigation sidebar. If you’re reading this from a mobile device,
+              you can access the navigation by pressing the button in the bottom
+              right corner of your screen.
+            </p>
+            <p>
+              Every chapter in this guide builds on the knowledge introduced in
+              earlier chapters. You can learn most of React by reading the “Main
+              Concepts” guide chapters in the order they appear in the sidebar.
+              For example, <a href="#jsx">“Introducing JSX”</a> is the next
+              chapter after this one.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="jsx">
+          <header>
+            <h1>JSX</h1>
+            <p>Consider this variable declaration:</p>
+          </header>
+          <article>
+            <xmp>
+  const element = <h1>Hello, world!</h1>;
+            </xmp>
+            <p>This funny tag syntax is neither a string nor HTML.</p>
+            <p>
+              It is called JSX, and it is a syntax extension to JavaScript. We
+              recommend using it with React to describe what the UI should look
+              like. JSX may remind you of a template language, but it comes with
+              the full power of JavaScript.
+            </p>
+            <p>
+              JSX produces React “elements”. We will explore rendering them to
+              the DOM in the <a href="#render">next section.</a> Below, you can
+              find the basics of JSX necessary to get you started.
+            </p>
+            <div class="divider"></div>
+            <h3>Why JSX?</h3>
+            <p>
+              React embraces the fact that rendering logic is inherently coupled
+              with other UI logic: how events are handled, how the state changes
+              over time, and how the data is prepared for display.
+            </p>
+            <p>
+              Instead of artificially separating technologies by putting markup
+              and logic in separate files, React separates concerns with loosely
+              coupled units called “components” that contain both. We will come
+              back to components in a further section, but if you’re not yet
+              comfortable putting markup in JS, this talk might convince you
+              otherwise.
+            </p>
+            <p>
+              React doesn’t require using JSX, but most people find it helpful
+              as a visual aid when working with UI inside the JavaScript code.
+              It also allows React to show more useful error and warning
+              messages.
+            </p>
+            <p>
+              With that out of the way, let’s get started!
+            </p>
+            <div class="divider"></div>
+            <h3>Embedding Expressions in JSX</h3>
+            <p>
+              In the example below, we declare a variable called name and then
+              use it inside JSX by wrapping it in curly braces:
+            </p>
+            <br />
+            <xmp>
+  const name = 'Josh Perez';
+  const element = <h1>Hello, {name}</h1>;
+
+  ReactDOM.render(
+  element,
+  document.getElementById('root')
+  );
+            </xmp>
+            <br />
+            <p>
+              You can put any valid JavaScript expression inside the curly
+              braces in JSX. For example, 2 + 2, user.firstName, or
+              formatName(user) are all valid JavaScript expressions.
+            </p>
+            <p>
+              In the example below, we embed the result of calling a JavaScript
+              function, formatName(user), into an h1 element.
+            </p>
+            <br />
+            <xmp>
+  function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+  }
+
+  const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+  };
+
+  const element = (
+  <h1>
+    Hello, {formatName(user)}!
+  </h1>
+  );
+
+  ReactDOM.render(
+  element,
+  document.getElementById('root')
+  );
+            </xmp>
+            <br />
+            <p>
+              We split JSX over multiple lines for readability. While it isn’t
+              required, when doing this, we also recommend wrapping it in
+              parentheses to avoid the pitfalls of automatic semicolon
+              insertion.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="render">
+          <header>
+            <h1>Render</h1>
+            <p>Elements are the smallest building blocks of React apps.</p>
+          </header>
+          <article>
+            <p>
+              An element describes what you want to see on the screen:
+            </p>
+            <br />
+            <xmp>
+  const element = <h1>Hello, world</h1>;
+            </xmp>
+            <br />
+            <p>
+              Unlike browser DOM elements, React elements are plain objects, and
+              are cheap to create. React DOM takes care of updating the DOM to
+              match the React elements.
+            </p>
+            <div class="divider"></div>
+            <h3>Rendering an Element into the DOM</h3>
+            <p>
+              Let’s say there is a <span class="highlight">div</span> somewhere in your
+              HTML file:
+            </p>
+            <br />
+            <xmp>
+  <div id="root"></div>
+            </xmp>
+            <br />
+            <p>
+              We call this a “root” DOM node because everything inside it will
+              be managed by React DOM.
+            </p>
+            <p>
+              Applications built with just React usually have a single root DOM
+              node. If you are integrating React into an existing app, you may
+              have as many isolated root DOM nodes as you like.
+            </p>
+            <p>
+              To render a React element into a root DOM node, pass both to
+              ReactDOM.render():
+            </p>
+            <br />
+            <xmp>
+  const element = <h1>Hello, world</h1>;
+  ReactDOM.render(element, document.getElementById('root'));
+            </xmp>
+            <br />
+            <p>
+              It displays “Hello, world” on the page.
+            </p>
+            <div class="divider"></div>
+            <h3>Updating the Rendered Element</h3>
+            <p>
+              React elements are immutable. Once you create an element, you
+              can’t change its children or attributes. An element is like a
+              single frame in a movie: it represents the UI at a certain point
+              in time.
+            </p>
+            <p>
+              With our knowledge so far, the only way to update the UI is to
+              create a new element, and pass it to ReactDOM.render().
+            </p>
+            <p>
+              Consider this ticking clock example:
+            </p>
+            <br />
+            <xmp>
+  function tick() {
+  const element = (
+  <div>
+    <h1>Hello, world!</h1>
+    <h2>It is {new Date().toLocaleTimeString()}.</h2>
+  </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+  }
+
+  setInterval(tick, 1000);
+            </xmp>
+            <br />
+            <p>
+              It calls ReactDOM.render() every second from a setInterval()
+              callback.
+            </p>
+            <div class="divider"></div>
+            <h3>React Only Updates What’s Necessary</h3>
+            <p>
+              React DOM compares the element and its children to the previous
+              one, and only applies the DOM updates necessary to bring the DOM
+              to the desired state.
+            </p>
+            <p>
+              You can verify by inspecting the last example with the browser
+              tools:
+            </p>
+            <br />
+            <img
+              src="https://reactjs.org/granular-dom-updates-c158617ed7cc0eac8f58330e49e48224.gif"
+              alt="Console gif showing the html code updating"
+            />
+            <br />
+            <p>
+              Even though we create an element describing the whole UI tree on
+              every tick, only the text node whose contents has changed gets
+              updated by React DOM.
+            </p>
+            <p>
+              In our experience, thinking about how the UI should look at any
+              given moment rather than how to change it over time eliminates a
+              whole class of bugs.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="components_and_props">
+          <header>
+            <h1>Components and Props</h1>
+            <p>
+              Components let you split the UI into independent, reusable pieces,
+              and think about each piece in isolation. This page provides an
+              introduction to the idea of components.
+            </p>
+          </header>
+          <article>
+            <p>
+              onceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React
+              elements describing what should appear on the screen.
+            </p>
+            <div class="divider"></div>
+            <h3>Function and Class Components</h3>
+            <p>
+              The simplest way to define a component is to write a JavaScript function:
+            </p>
+            <br>
+            <xmp>
+  function Welcome(props) {
+    return <h1>Hello, {props.name}</h1>;
+  }
+            </xmp>
+            <br>
+            <p>
+              This function is a valid React component because it accepts a single “props” (which stands for properties) object
+              argument with data and returns a React element. We call such components “function components” because they are literally
+              JavaScript functions.
+            </p>
+            <p>
+              You can also use an ES6 class to define a component:
+            </p>
+            <br>
+            <xmp>
+  class Welcome extends React.Component {
+    render() {
+      return <h1>Hello, {this.props.name}</h1>;
+    }
+  }
+            </xmp>
+            <br>
+            <p>
+              The above two components are equivalent from React’s point of view.
+            </p>
+            <p>
+              Classes have some additional features that we will discuss in the next sections. Until then, we will use function
+              components for their conciseness.
+            </p>
+            <div class="divider"></div>
+            <h3>Rendering a Component</h3>
+            <p>
+              Previously, we only encountered React elements that represent DOM tags:
+            </p>
+            <br>
+            <xmp>
+  const element = <div />;
+            </xmp>
+            <br>
+            <p>
+              However, elements can also represent user-defined components:
+            </p>
+            <br>
+            <xmp>
+  const element = <Welcome name="Sara" />;
+            </xmp>
+            <br>
+            <p>
+              When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single
+              object. We call this object “props”.
+            </p>
+            <p>
+              For example, this code renders “Hello, Sara” on the page:
+            </p>
+            <br>
+            <xmp>
+  function Welcome(props) {
+    return <h1>Hello, {props.name}</h1>;
+  }
+
+  const element = <Welcome name="Sara" />;
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
+            </xmp>
+            <br>
+            <p>
+              Let’s recap what happens in this example:
+              <ol>
+                <li>We call ReactDOM.render() with the <span class="highlight">< Welcome name="Sara" /></span> element.</li>
+                <li>React calls the Welcome component with <span class="highlight">{name: 'Sara'}</span> as the props.</li>
+                <li>Our Welcome component returns a <span class="highlight">< h1> Hello, Sara < /h1></span> element as the result.</li>
+                <li>React DOM efficiently updates the DOM to match <span class="highlight">< h1> Hello, Sara < /h1></span>.</li>
+              </ol>
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="state">
+          <header>
+            <h1>State</h1>
+            <p>
+              This page introduces the concept of state and lifecycle in a React
+              component.
+            </p>
+          </header>
+          <article>
+            <p>
+              Consider the ticking clock example from one of the previous sections. In Rendering Elements, we have only learned one
+              way to update the UI. We call ReactDOM.render() to change the rendered output:
+            </p>
+            <br>
+            <xmp>
+  function tick() {
+    const element = (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      </div>
+    );
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );
+  }
+
+  setInterval(tick, 1000);
+            </xmp>
+            <br>
+            <p>
+              In this section, we will learn how to make the Clock component truly reusable and encapsulated. It will set up its own
+              timer and update itself every second.
+            </p>
+            <p>
+              We can start by encapsulating how the clock looks:
+            </p>
+            <br>
+            <xmp>
+  function Clock(props) {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {props.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+
+  function tick() {
+    ReactDOM.render(
+      <Clock date={new Date()} />,
+      document.getElementById('root')
+    );
+  }
+
+  setInterval(tick, 1000);
+            </xmp>
+            <br>
+            <p>
+              However, it misses a crucial requirement: the fact that the Clock sets up a timer and updates the UI every second should
+              be an implementation detail of the Clock.
+            </p>
+            <p>
+              Ideally we want to write this once and have the Clock update itself:
+            </p>
+            <br>
+            <xmp>
+  ReactDOM.render(
+    <Clock />,
+    document.getElementById('root')
+  );
+            </xmp>
+            <br>
+            <p>
+              To implement this, we need to add “state” to the Clock component.
+            </p>
+            <p>
+              State is similar to props, but it is private and fully controlled by the component.
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="events">
+          <header>
+            <h1>Events</h1>
+            <p>
+              Handling events with React elements is very similar to handling
+              events on DOM elements. There are some syntactic differences:
+            </p>
+          </header>
+          <article>
+            <ul>
+              <li>React events are named using camelCase, rather than lowercase.</li>
+              <li>With JSX you pass a function as the event handler, rather than a string.</li>
+            </ul>
+            <p>
+              For example, the HTML:
+            </p>
+            <br>
+            <xmp>
+  <button onclick="activateLasers()">
+    Activate Lasers
+  </button>
+            </xmp>
+            <br>
+            <p>
+              is slightly different in React:
+            </p>
+            <br>
+            <xmp>
+  <button onClick={activateLasers}>
+    Activate Lasers
+  </button>
+            </xmp>
+            <br>
+            <p>
+              Another difference is that you cannot return <span class="highlight">false</span> to prevent default behavior in React. You must call <span class="highlight">preventDefault</span>
+              explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+            </p>
+            <br>
+            <xmp>
+  <a href="#" onclick="console.log('The link was clicked.'); return false">
+    Click me
+  </a>
+            </xmp>
+            <br>
+            <p>
+              In React, this could instead be:
+            </p>
+            <br>
+            <xmp>
+  function ActionLink() {
+    function handleClick(e) {
+      e.preventDefault();
+      console.log('The link was clicked.');
+    }
+
+    return (
+      <a href="#" onClick={handleClick}>
+        Click me
+      </a>
+    );
+  }
+            </xmp>
+            <br>
+            <p>
+              Here, <span class="highlight">e</span> is a synthetic event. React defines these synthetic events according to the W3C spec, so you don’t need to worry
+              about cross-browser compatibility. See the SyntheticEvent reference guide to learn more.
+            </p>
+            <p>
+              When using React you should generally not need to call <span class="highlight">addEventListener</span> to add listeners to a DOM element after it is
+              created. Instead, just provide a listener when the element is initially rendered.
+            </p>
+            <p>
+              When you define a component using an ES6 class, a common pattern is for an event handler to be a method on the class.
+              For example, this <span class="highlight">Toggle</span> component renders a button that lets the user toggle between “ON” and “OFF” states:
+            </p>
+          </article>
+        </section>
+
+        <section class="main-section" id="lists">
+          <header>
+            <h1>Lists</h1>
+            <p>First, let’s review how you transform lists in JavaScript.</p>
+          </header>
+          <article>
+            <p>
+              Given the code below, we use the map() function to take an array of <span class="highlight">numbers</span> and double their values. We assign the new
+              array returned by <span class="highlight">map()</span> to the variable <span class="highlight">doubled</span> and log it:
+            </p>
+            <br>
+            <xmp>
+  const numbers = [1, 2, 3, 4, 5];
+  const doubled = numbers.map((number) => number * 2);
+  console.log(doubled);
+            </xmp>
+            <br>
+            <p>
+              This code logs <span class="highlight">[2, 4, 6, 8, 10]</span> to the console.
+            </p>
+            <p>
+              In React, transforming arrays into lists of elements is nearly identical.
+            </p>
+            <div class="divider"></div>
+            <h3>Rendering Multiple Components</h3>
+            <p>
+              You can build collections of elements and include them in JSX using curly braces <span class="highlight">{}</span>.
+            </p>
+            <p>
+              Below, we loop through the <span class="highlight">numbers</span> array using the JavaScript map() function. We return a <span class="highlight">< li ></span> element for each item.
+                Finally, we assign the resulting array of elements to <span class="highlight">listItems</span>:
+            </p>
+            <br>
+            <xmp>
+  const numbers = [1, 2, 3, 4, 5];
+  const listItems = numbers.map((number) =>
+    <li>{number}</li>
+  );
+            </xmp>
+            <br>
+            <p>
+              We include the entire <span class="highlight">listItems</span> array inside a <span class="highlight">< ul ></span> element, and render it to the DOM:
+            </p>
+            <br>
+            <xmp>
+  ReactDOM.render(
+    <ul>{listItems}</ul>,
+    document.getElementById('root')
+  );
+            </xmp>
+            <br>
+            <p>
+              This code displays a bullet list of numbers between 1 and 5.
+            </p>
+            <div class="divider"></div>
+            <h3>Basic List Component</h3>
+            <p>
+              Usually you would render lists inside a component.
+            </p>
+            <p>
+              We can refactor the previous example into a component that accepts an array of <span class="highlight">numbers</span> and outputs a list of elements.
+            </p>
+            <br>
+            <xmp>
+  function NumberList(props) {
+    const numbers = props.numbers;
+    const listItems = numbers.map((number) =>
+      <li>{number}</li>
+    );
+    return (
+      <ul>{listItems}</ul>
+    );
+  }
+
+  const numbers = [1, 2, 3, 4, 5];
+  ReactDOM.render(
+    <NumberList numbers={numbers} />,
+    document.getElementById('root')
+  );
+            </xmp>
+            <br>
+            <p>
+              When you run this code, you’ll be given a warning that a key should be provided for list items. A “key” is a special
+              string attribute you need to include when creating lists of elements. We’ll discuss why it’s important in the next
+              section.
+            </p>
+            <p>
+              Let’s assign a <span class="highlight">key</span> to our list items inside <span class="highlight">numbers.map()</span> and fix the missing key issue.
+            </p>
+            <br>
+            <xmp>
+  function NumberList(props) {
+    const numbers = props.numbers;
+    const listItems = numbers.map((number) =>
+      <li key={number.toString()}>
+        {number}
+      </li>
+    );
+    return (
+      <ul>{listItems}</ul>
+    );
+  }
+
+  const numbers = [1, 2, 3, 4, 5];
+  ReactDOM.render(
+    <NumberList numbers={numbers} />,
+    document.getElementById('root')
+  );
+            </xmp>
+            <br>
+          </article>
+        </section>
+
+        <section class="main-section" id="forms">
+          <header>
+            <h1>Forms</h1>
+            <p>
+              HTML form elements work a little bit differently from other DOM
+              elements in React, because form elements naturally keep some
+              internal state. For example, this form in plain HTML accepts a
+              single name:
+            </p>
+          </header>
+          <article>
+            <xmp>
+  <form>
+    <label>
+      Name:
+      <input type="text" name="name" />
+    </label>
+    <input type="submit" value="Submit" />
+  </form>
+            </xmp>
+            <p>
+              This form has the default HTML form behavior of browsing to a new page when the user submits the form. If you want this
+              behavior in React, it just works. But in most cases, it’s convenient to have a JavaScript function that handles the
+              submission of the form and has access to the data that the user entered into the form. The standard way to achieve this
+              is with a technique called “controlled components”.
+            </p>
+            <div class="divider"></div>
+            <h3>Controlled Components</h3>
+            <p>
+              In HTML, form elements such as <span class="highlight">< input ></span>, <span class="highlight">< textarea ></span>, and <span class="highlight">< select ></span> typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with setState().
+            </p>
+            <p>
+              We can combine the two by making the React state be the “single source of truth”. Then the React component that renders
+              a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled
+              by React in this way is called a “controlled component”.
+            </p>
+            <p>
+              For example, if we want to make the previous example log the name when it is submitted, we can write the form as a
+              controlled component:
+            </p>
+            <br>
+            <xmp>
+  class NameForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {value: ''};
+
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+      alert('A name was submitted: ' + this.state.value);
+      event.preventDefault();
+    }
+
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      );
+    }
+  }
+            </xmp>
+            <br>
+            <p>
+              Since the <span class="highlight">value</span> attribute is set on our form element, the displayed value will always be <span class="highlight">this.state.value</span>, making the
+              React state the source of truth. Since <span class="highlight">handleChange</span> runs on every keystroke to update the React state, the displayed
+              value will update as the user types.
+            </p>
+            <p>
+              With a controlled component, every state mutation will have an associated handler function. This makes it
+              straightforward to modify or validate user input. For example, if we wanted to enforce that names are written with all
+              uppercase letters, we could write <span class="highlight">handleChange</span> as:
+            </p>
+            <br>
+            <xmp>
+  handleChange(event) {
+    this.setState({value: event.target.value.toUpperCase()});
+  }
+            </xmp>
+            <br>
+            <div class="divider"></div>
+            <h3>The textarea Tag</h3>
+            <p>
+              In HTML, a <span class="highlight">< textarea ></span> element defines its text by its children:
+            </p>
+            <br>
+            <xmp>
+  <textarea>
+    Hello there, this is some text in a text area
+  </textarea>
+            </xmp>
+            <br>
+            <p>
+              In React, a <span class="highlight">< textarea ></span> uses a <span class="highlight">value</span> attribute instead. This way, a form using a <span class="highlight">< textarea ></span> can be written very similarly to a form that uses a single-line input:
+            </p>
+            <br>
+            <xmp>
+  class EssayForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+      value: 'Please write an essay about your favorite DOM element.'
+      };
+
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+      alert('An essay was submitted: ' + this.state.value);
+      event.preventDefault();
+    }
+
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Essay:
+            <textarea value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      );
+    }
+  }
+            </xmp>
+            <br>
+            <p>
+              Notice that <span class="highlight">this.state.value</span> is initialized in the constructor, so that the text area starts off with some text in it.
+            </p>
+            <div class="divider"></div>
+            <h3>The select Tag</h3>
+            <p>
+              In HTML, <span class="highlight">< select ></span> creates a drop-down list. For example, this HTML creates a drop-down list of flavors:
+            </p>
+            <br>
+            <xmp>
+  <select>
+    <option value="grapefruit">Grapefruit</option>
+    <option value="lime">Lime</option>
+    <option selected value="coconut">Coconut</option>
+    <option value="mango">Mango</option>
+  </select>
+            </xmp>
+            <br>
+            <p>
+              Note that the Coconut option is initially <span class="highlight">selected</span>, because of the selected attribute. React, instead of using this
+              <span class="highlight">selected</span> attribute, uses a <span class="highlight">value</span> attribute on the root <span class="highlight">select</span> tag. This is more convenient in a controlled component
+              because you only need to update it in one place. For example:
+            </p>
+            <br>
+            <xmp>
+  class FlavorForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {value: 'coconut'};
+
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+      alert('Your favorite flavor is: ' + this.state.value);
+      event.preventDefault();
+    }
+
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Pick your favorite flavor:
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option value="grapefruit">Grapefruit</option>
+              <option value="lime">Lime</option>
+              <option value="coconut">Coconut</option>
+              <option value="mango">Mango</option>
+            </select>
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      );
+    }
+  }
+            </xmp>
+            <br>
+            <p>
+              Overall, this makes it so that <span class="highlight">< input type="text"></span>, <span class="highlight">< textarea ></span>, and <span class="highlight">< select ></span> all work very similarly - they all accept a value attribute that you can use to implement a controlled component.
+            </p>
+          </article>
+        </section>
+        <footer>
+          <p>  <a  href="https://reactjs.org" target="_blank" rel="noopener">&copy; Reactjs.org</a></p>
+        </footer>
+      </div>
+    </main>
+    <script>
+      function activate(e){
+        if (document.querySelector('#navbar a.active') !== null){
+          document.querySelector('#navbar a.active').classList.remove('active');
+        }
+        e.target.className = "nav-link active links";
+      }
+    </script>
+  </body>
+</html>

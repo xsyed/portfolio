@@ -1,0 +1,200 @@
+:root {
+  --bg: #0c056d;
+  --vlet: #590d82;
+  --purp: #b61aae;
+  --crem: #f25d9c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: white;
+  background-color: var(--purp);
+}
+.bg {
+  background-color: var(--bg);
+}
+.vlet {
+  background-color: var(--vlet);
+}
+a {
+  color: var(--crem);
+}
+
+#home {
+  background-color: var(--bg);
+  height: 100vh;
+  width: 100%;
+}
+#box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 150px;
+}
+
+ul.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+li.nav-item {
+  padding: 0px 10px;
+}
+
+a.nav-link {
+  color: var(--crem);
+}
+a.nav-link:hover {
+  color: white;
+  border-bottom: 2px solid var(--purp);
+  transition: 0.1s border linear;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  transform: rotate(-20deg);
+  margin: 0 10px 0 0;
+}
+.navbar-brand {
+  color: white;
+  margin: 10px;
+  font-size: 25px;
+}
+.navbar-brand:hover {
+  color: white;
+}
+.leftie {
+  margin-left: 70px;
+}
+.leftie img {
+  transform: rotate(-5deg);
+}
+
+.rightie {
+  margin-right: 200px;
+  margin-top: 100px;
+  /* border: 1px solid white; */
+}
+
+.rightie h3 {
+  font-size: 70px;
+}
+
+.rightie p {
+  font-size: 30px;
+}
+.rightie a {
+  font-style: italic;
+  border-bottom: 1px dashed white;
+}
+.rightie a:hover {
+  border-bottom: 1px solid var(--crem);
+  color: var(--crem);
+  font-style: italic;
+  transition: 0.1s all linear;
+}
+
+#features {
+  background-color: var(--purp);
+  height: 100vh;
+}
+
+#pricing {
+  background-color: var(--vlet);
+  padding-bottom: 100px;
+}
+
+.heading {
+  padding-top: 100px;
+  text-align: center;
+}
+.ft-head {
+  color: white;
+  font-size: 50px;
+  font-weight: bolder;
+}
+.pc-head {
+  color: white;
+  font-size: 50px;
+  font-weight: bolder;
+}
+.tcent {
+  text-align: center;
+}
+.vlet-color {
+  color: var(--vlet);
+}
+
+.bg-color {
+  color: var(--bg);
+}
+
+.nest {
+  margin: 70px 0;
+}
+.nest .row .col p {
+  color: white;
+}
+.nest .row .col {
+  padding: 20px 10px;
+}
+ion-icon {
+  font-size: 70px;
+  color: var(--bg);
+}
+.cover input {
+  text-align: center;
+  width: 400px;
+  margin-bottom: 10px;
+}
+.cover .col {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+#footer {
+  padding: 10px 0px;
+}
+
+#footer p {
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 960px) {
+  #box {
+    display: block;
+    padding-top: 200px;
+  }
+  .leftie {
+    margin-left: 0;
+  }
+  .leftie img {
+    transform: rotate(-20deg);
+    width: 400px;
+    height: 300px;
+  }
+  .rightie {
+    display: block;
+    margin: 0;
+    /* border: 1px solid white; */
+  }
+
+  .rightie h3 {
+    font-size: 50px;
+  }
+
+  .rightie p {
+    font-size: 25px;
+  }
+}

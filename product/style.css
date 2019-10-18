@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* System Fonts */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+aside {
+  background-color: #20232a;
+  width: 20%;
+  height: 100%;
+}
+
+aside > header > h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 22px;
+  color: #61dafb;
+}
+
+.nav-link {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(192, 192, 192);
+}
+.nav-link:visited,
+.nav-link:link {
+  display: block;
+}
+.nav-link:hover,
+.nav-link:active {
+  display: block;
+  background-color: #49d5ff;
+  color: black;
+}
+
+.active {
+  background-color: #49d5ff;
+  color: black;
+}
+
+#meat {
+  padding: 30px 50px 30px 30px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 80%;
+}
+
+.main-section header h1 {
+  font-size: 40px;
+  color: #292929;
+}
+.main-section article h3 {
+  font-size: 24px;
+  color: #292929;
+  padding: 10px 0px;
+}
+
+.main-section header p {
+  font-size: 20px;
+  color: #585858;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+xmp {
+  margin: 0 0 10px 0;
+  padding: 0;
+  color: #17c9ff;
+  background-color: #252525;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.main-section article p {
+  padding: 10px 0px;
+  font-size: 16px;
+  color: #1d1d1d;
+  line-height: 1.5;
+}
+.main-section article a:link,
+article a:visited {
+  background-color: #ddf9ff;
+  color: #1d1d1d;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.main-section article a:hover,
+article a:active {
+  background-color: #bcecff;
+  color: #000;
+  border-bottom-color: #1a1a1a;
+}
+.main-section article {
+  margin-bottom: 30px;
+}
+.divider {
+  height: 1px;
+  width: 90%;
+  background-color: #e2e2e2;
+  margin: 10px auto;
+}
+
+.main-section article ol,
+.main-section article ul {
+  margin: 10px 30px;
+}
+
+.main-section article ol > li,
+.main-section article ul > li {
+  line-height: 2;
+}
+
+.highlight {
+  background-color: bisque;
+  color: rgb(53, 53, 53);
+  padding: 3px 2px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+footer {
+  text-align: center;
+}
+footer p a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+}
+footer p a:hover,
+footer p a:active {
+  background-color: #49d5ff;
+  color: black;
+}
+
+@media screen and (max-width: 850px) {
+  aside > header > h1 {
+    font-size: 16px;
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+  .main-section header p {
+    font-size: 16px;
+  }
+  .main-section header h1 {
+    font-size: 30px;
+  }
+  xmp {
+    font-size: 12px;
+  }
+  .main-section article p {
+    font-size: 14px;
+  }
+  .main-section article h3 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  main {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
+  aside {
+    background-color: #20232a;
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+  }
+  #meat {
+    padding: 30px 50px 30px 30px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+  }
+}

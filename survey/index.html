@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Games Survey</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <style>
+      .ml-25 {
+        margin-left: 25px;
+      }
+      .mt-20 {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-dark has-text-centered">
+      <div class="hero-body">
+        <div class="container ">
+          <h1 class="title" id="title">Video Game Console Survey</h1>
+          <h2 class="subtitle" id="description">
+            Let us know your favourite video game consoles.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <div class="columns is-mobile">
+      <div class="column is-half is-offset-one-quarter ml-25 mt-20">
+        <form
+          action="/"
+          method="GET"
+          id="survey-form"
+          onsubmit="return false"
+          validate
+        >
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="name" class="label" id="name-label">Name*</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input
+                    type="text"
+                    class="input"
+                    placeholder="eg. Syed Samiuddin"
+                    id="name"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="email" class="label" id="email-label">Email*</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="email"
+                    id="email"
+                    placeholder="eg. syedsamiuddin@domain.com"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label is-normal" id="sex-label">Sex*</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <label for="male" class="radio">
+                    <input type="radio" name="sex" id="male" required /> Male
+                  </label>
+                  <label for="female" class="radio">
+                    <input type="radio" name="sex" id="female" required />
+                    Female
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="number" class="label" id="number-label">Age*</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    id="number"
+                    placeholder="eg. 23"
+                    min="3"
+                    max="125"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label" id="dropdown-label">Gametime*</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select is-dark">
+                    <select name="playing" id="dropdown" required>
+                      <option value="">How often do you play?</option>
+                      <option value="1">Daily</option>
+                      <option value="2">5 - 6 times a week</option>
+                      <option value="3">3 - 4 times a week</option>
+                      <option value="4">1 - 2 times a week</option>
+                      <option value="5">Occasionally</option>
+                      <option value="6"
+                        >I do not play on my games console</option
+                      >
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="email" class="label" id="email-label">Consoles</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <label for="ps4" class="checkbox">
+                    <input id="ps4" type="checkbox" /> PlayStation 4
+                  </label>
+                  <br />
+                  <label for="ps3" class="checkbox">
+                    <input id="ps3" type="checkbox" /> PlayStation 3
+                  </label>
+                  <br />
+                  <label for="ps1" class="checkbox">
+                    <input id="ps1" type="checkbox" /> PlayStation 1
+                  </label>
+                  <br />
+                  <label for="xboxone" class="checkbox">
+                    <input id="xboxone" type="checkbox" /> Xbox One
+                  </label>
+                  <br />
+                  <label for="xbox360" class="checkbox">
+                    <input id="xbox360" type="checkbox" /> Xbox 360
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="about" class="label" id="about-label">About*</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <textarea
+                    name="about"
+                    id="about"
+                    placeholder="Tell me about yourself"
+                    class="textarea"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <input
+                type="button"
+                class="button is-danger"
+                value="Reset"
+                onClick="document.getElementById('survey-form').reset()"
+              />
+            </div>
+            <div class="control">
+              <input
+                type="submit"
+                class="button is-info"
+                value="Submit"
+                id="submit"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

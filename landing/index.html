@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gamedroid &centerdot; Fun in hand</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#0c056d">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="home">
+        <div id="header">
+          <nav class="navbar navbar-expand-sm fixed-top bg" id="nav-bar">
+            <a href="#" class="navbar-brand taketohome"
+              ><img src="logo.png" alt="" class="logo" id="header-img" />Gamedroid</a
+            >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="#" class="nav-link taketohome">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link taketofeatures">Features</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link taketopricing">Buy</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="container-fluid" id="box">
+          <div class="leftie">
+            <img src="gameboy.png" alt="Gamedroid image" />
+          </div>
+          <div class="rightie">
+            <h3>Gamedroid</h3>
+            <p>Fun in palm of your hands!</p>
+            <a href="#" class="taketofeatures">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div id="features">
+        <div class="heading">
+          <h1 class="ft-head">Features</h1>
+        </div>
+        <div class="nest">
+          <div class="container">
+            <div class="row">
+              <div class="col tcent">
+                <p>
+                  <ion-icon name="logo-game-controller-b"></ion-icon>
+                </p>
+                <p>
+                  Variety of games and fun gameplay.
+                </p>
+              </div>
+              <div class="col tcent">
+                <p>
+                  <ion-icon name="flower"></ion-icon>
+                </p>
+                <p>
+                  Friendly controls and design.
+                </p>
+              </div>
+              <div class="col tcent">
+                <p>
+                  <ion-icon name="wifi"></ion-icon>
+                </p>
+                <p>
+                  Connectivity to internet.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col tcent">
+                <p>
+                  <ion-icon name="switch"></ion-icon>
+                </p>
+                <p>
+                  External controllers support.
+                </p>
+              </div>
+              <div class="col tcent">
+                <p>
+                  <ion-icon name="planet"></ion-icon>
+                </p>
+                <p>
+                  Universe of different genres of games.
+                </p>
+              </div>
+              <div class="col tcent">
+                <p>
+                  <ion-icon name="star"></ion-icon>
+                </p>
+                <p>
+                  Rewarding experience for all ages.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="pricing">
+        <div class="heading">
+          <h1 class="pc-head">How to Buy</h1>
+        </div>
+        <div class="cover">
+          <div class="container">
+            <div class="row">
+              <div class="col tcent">
+                <form id="form" action="https://www.freecodecamp.com/email-submit">
+                  <input type="email" id="email" class="form-control" placeholder="Email" required />
+                  <p><i>*No spam for sure</i></p>
+                  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" class="tcent vlet">
+        <p>2019 &copy; Syed Samiuddin &centerdot; Gameboy is trademark of Nintendo</p>
+      </div>
+    </div>
+
+    <script>
+      $('.taketofeatures').click(function() {
+        $('html, body').animate(
+          {
+            scrollTop: $('#features').offset().top
+          },
+          700
+        )
+      })
+      $('.taketohome').click(function() {
+        $('html, body').animate(
+          {
+            scrollTop: $('#home').offset().top
+          },
+          700
+        )
+      })
+      $('.taketopricing').click(function() {
+        $('html, body').animate(
+          {
+            scrollTop: $('#pricing').offset().top
+          },
+          700
+        )
+      })
+
+      $('nav a').on('click', function() {
+
+    var scrollAnchor = $(this).attr('data-scroll'),
+        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 28;
+
+    $('body,html').animate({
+        scrollTop: scrollPoint
+    }, 500);
+
+    return false;
+
+})
+
+
+$(window).scroll(function() {
+    var windscroll = $(window).scrollTop();
+    if (windscroll >= 100) {
+        $('nav').addClass('fixed');
+        $('.wrapper section').each(function(i) {
+            if ($(this).position().top <= windscroll - 20) {
+                $('nav a.active').removeClass('active');
+                $('nav a').eq(i).addClass('active');
+            }
+        });
+
+    } else {
+
+        $('nav').removeClass('fixed');
+        $('nav a.active').removeClass('active');
+        $('nav a:first').addClass('active');
+    }
+
+}).scroll();
+    </script>
+  </body>
+</html>
