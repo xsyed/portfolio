@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: syedsamiuddin.com
+Token: 790ef6e9b797fad346e3fab270200bf48fdea2b512bf70aae920460aff92c24f
