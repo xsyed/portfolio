@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FCC Markdown Previewer &centerdot; Syed Samiuddin</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <div id="wrapper">
+       <div>
+        <h1 class="center" id="hed">FCC Markdown previewer</h1>
+       </div>
+        
+        <div id="tagcon">
+            <div id="edi" class="center">
+                <p class="tag red">Editor</p>
+            </div>
+            <div id="pre" class="center">
+                <p class="tag blue">Preview</p>
+            </div>
+        </div>
+        <div id="content">
+            <div class="editor">
+    
+                <textarea placeholder="Text..." id="editor" class="pad" autofocus></textarea>
+            </div>
+            
+            <div class="preview">
+                
+                <div id="preview" class="pad">
+                
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.8.0/marked.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
