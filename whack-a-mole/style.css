@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+
+:root{
+    --b-width: 420px;
+    --b-height: 420px; 
+}
+
+#wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+#head h1{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+#hud{
+    display: flex;
+    width: var(--b-width);
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.square{
+    width:140px;
+    height: 140px;
+    border: solid black;
+    /* cursor: pointer; */
+    
+}
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: var(--b-width);
+    height: var(--b-height);
+    cursor:url(t.png), auto;
+}
+
+.mole{
+    background: url('mole.jpeg');
+    background-size: cover;
+    background-position-y: 9px;
+}
+
+.restart{
+    display: none;
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+
+@media only screen and (max-width: 660px){
+    #wrapper{
+        width: 100vw;
+        justify-content: start;
+        margin: 40px 0px;
+    }
+    #hud{
+        flex-direction: column;
+        align-items: center;
+    }
+    #score,#time, .restart{
+        margin-bottom: 15px;
+    }
+    .grid{
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        padding: 0px 10px;
+    }
+
+    .square{
+        width:93px;
+        height: 93px;
+    }
+}
