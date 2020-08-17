@@ -93,16 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function control(e){
         squares[currentIndex].classList.remove('snake')
 
-        if(e.keyCode === 39){
+        if(e.keyCode === 39 && direction !== -1){
             //right
             direction = 1;
-        } else if(e.keyCode === 38){
+        } else if(e.keyCode === 38 && direction <=1){
             //up
             direction =- width;
-        } else if(e.keyCode === 37){
+        } else if(e.keyCode === 37 && direction !== 1){
             //left
             direction = -1;
-        } else if(e.keyCode === 40){
+        } else if(e.keyCode === 40 && direction >= -1){
             //down
             direction =+ width;
         }
